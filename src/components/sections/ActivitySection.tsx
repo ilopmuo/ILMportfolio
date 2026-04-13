@@ -26,7 +26,7 @@ export async function ActivitySection() {
             Integraciones
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-            En activo.
+            GitHub y Salesforce.
           </h2>
         </div>
       </AnimatedSection>

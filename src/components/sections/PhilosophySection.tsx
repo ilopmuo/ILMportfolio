@@ -66,7 +66,7 @@ export function PhilosophySection() {
             Cómo pienso
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight max-w-2xl">
-            Principios que guían mi forma de trabajar.
+            Qué guía mi forma de trabajar.
           </h2>
         </div>
       </AnimatedSection>
