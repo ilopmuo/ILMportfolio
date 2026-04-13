@@ -62,8 +62,8 @@ export function AboutSection() {
                 gestiono proyectos de implementación y mantenimiento de Salesforce para freightforwarders.
               </p>
               <p>
-                Al día con las herramientas de <strong className="text-brand-900 font-semibold">IA generativa</strong> aplicadas al desarrollo —
-                Claude, Cursor, v0 — y con capacidad de orquestar tecnologías para construir
+                Al día con las herramientas de <strong className="text-brand-900 font-semibold">IA generativa</strong> aplicadas al desarrollo
+                Claude code, Cursor, v0 y con capacidad de orquestar tecnologías para construir
                 y desplegar soluciones reales de principio a fin.
               </p>
               <p>
