@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
@@ -23,6 +23,10 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
   const filters = [t.all_filter, ...allTags];
   const [active, setActive] = useState(t.all_filter);
+
+  useEffect(() => {
+    setActive(t.all_filter);
+  }, [t.all_filter]);
 
   const filtered =
     active === t.all_filter
