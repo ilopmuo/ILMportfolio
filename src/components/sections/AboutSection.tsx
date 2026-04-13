@@ -36,6 +36,23 @@ export function AboutSection() {
                   </div>
                 </div>
               ))}
+
+              {/* Degree */}
+              <div className="pt-3 mt-1 border-t border-brand-100">
+                <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
+                  Titulación
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 bg-white flex items-center justify-center overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/universidad_logo.jpg" alt="UPO" className="object-contain w-9 h-9" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-brand-900">Ingeniería Informática — Sistemas de Información</p>
+                    <p className="text-xs text-brand-500">Universidad Pablo de Olavide · Sevilla</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </AnimatedSection>
