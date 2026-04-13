@@ -73,7 +73,7 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 ml-12">
           {NAV_LINKS.map((link, i) => {
             const sectionId = link.href.replace("/#", "");
             const isActive = activeSection === sectionId;
