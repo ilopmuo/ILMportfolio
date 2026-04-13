@@ -128,38 +128,59 @@ export const STATS = [
 export const TIMELINE = [
   {
     period: "Nov 2025 – Actualidad",
-    role: "Customer Success Manager | Salesforce",
+    role: "Customer Success Manager",
     company: "Neurored",
     location: "Sevilla, España",
+    type: "work" as const,
     isAIEra: true,
-    summary:
-      "Diseño funcional y técnico de módulos complejos en logística y envíos. Liderazgo de workshops, elaboración de Solution Designs completos y coordinación con Product Office.",
+    summary: "Gestión de proyectos de implementación y mantenimiento de Salesforce para freightforwarders internacionales.",
+    bullets: [
+      "Liderazgo de workshops con clientes internacionales",
+      "Elaboración de Solution Designs completos: data model, flujos, permisos y APIs",
+      "Coordinación con Product Office y desarrollo para priorizar bugs y mejoras",
+      "Demos complejas para perfiles sin conocimiento técnico",
+    ],
   },
   {
     period: "Sep 2025 – Nov 2025",
     role: "Salesforce Developer",
     company: "SEIDOR NTS",
     location: "Sevilla, España",
+    type: "work" as const,
     isAIEra: true,
-    summary:
-      "Desarrollo de LWC y Apex, integración con APIs externas, automatizaciones avanzadas y participación en CI/CD.",
+    summary: "Desarrollo técnico de componentes y automatizaciones avanzadas.",
+    bullets: [
+      "Desarrollo de Lightning Web Components y Apex",
+      "Integración con APIs externas y lógica de backend",
+      "Participación en despliegues, revisiones de código y CI/CD",
+    ],
   },
   {
     period: "Jun 2024 – Sep 2025",
     role: "Salesforce Technical Assistant",
     company: "SEIDOR NTS",
     location: "Sevilla, España",
+    type: "work" as const,
     isAIEra: false,
-    summary:
-      "Automatización de procesos con Flows, optimización de dashboards, soporte en Sales Cloud y Service Cloud.",
+    summary: "Primeros pasos en Salesforce: configuración, automatización y soporte funcional.",
+    bullets: [
+      "Automatización de procesos con Flows avanzados",
+      "Optimización de dashboards y reportes",
+      "Soporte funcional en Sales Cloud y Service Cloud",
+    ],
   },
   {
     period: "2019 – Actualidad",
-    role: "Grado en Ingeniería Informática (Sistemas de Información)",
+    role: "Ingeniería Informática",
     company: "Universidad Pablo de Olavide",
     location: "Sevilla, España",
+    type: "education" as const,
     isAIEra: false,
-    summary: "Formación en arquitectura de sistemas, bases de datos, desarrollo de software y gestión de proyectos tecnológicos.",
+    summary: "Grado en Ingeniería Informática, especialidad Sistemas de Información.",
+    bullets: [
+      "Bases de datos, arquitectura de sistemas y desarrollo de software",
+      "Gestión de proyectos tecnológicos",
+    ],
   },
 ];
 
