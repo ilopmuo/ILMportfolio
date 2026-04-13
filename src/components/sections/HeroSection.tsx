@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
+import { CVDownloadButton } from "@/components/cv/CVDownloadButton";
 
 const ROLES = [
   {
@@ -110,6 +111,7 @@ export function HeroSection() {
               >
                 Contactar
               </a>
+              <CVDownloadButton />
 
               {/* Dots indicator */}
               <div className="flex items-center gap-1.5 ml-1">
