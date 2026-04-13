@@ -1,32 +1,24 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "motion/react";
-import { useEffect, useRef } from "react";
-import { ArrowDown, BadgeCheck } from "lucide-react";
+import { motion } from "motion/react";
+import { ArrowDown } from "lucide-react";
 
-function CountUp({ to, duration = 1.5, suffix = "" }: { to: number; duration?: number; suffix?: string }) {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) => Math.round(v) + suffix);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const controls = animate(count, to, { duration, ease: "easeOut", delay: 0.6 });
-    return controls.stop;
-  }, [count, to, duration]);
-
-  return <motion.span ref={ref}>{rounded}</motion.span>;
-}
-
-const CERTS = [
-  { label: "AI Associate", year: "2024" },
-  { label: "Administrator", year: "2025" },
-  { label: "Platform App Builder", year: "2025" },
-];
-
-const STATS = [
-  { value: 3, suffix: "", label: "años en Salesforce" },
-  { value: 10, suffix: "+", label: "proyectos entregados" },
-  { value: 3, suffix: "", label: "certificaciones activas" },
+const ROLES = [
+  {
+    tag: "Customer Success",
+    headline: "Entiendo lo que el cliente necesita",
+    body: "Lidero workshops, traduzco requisitos complejos y gestiono la relación desde el primer día hasta el go-live.",
+  },
+  {
+    tag: "Project Lead",
+    headline: "Organizo equipos y entrego",
+    body: "Coordino con producto, desarrollo y QA. Priorizo con criterio de negocio, no solo con urgencia.",
+  },
+  {
+    tag: "Developer",
+    headline: "Y también construyo",
+    body: "Cuando hace falta, escribo el código. Apex, LWC, APIs, automatizaciones — sin depender de nadie.",
+  },
 ];
 
 export function HeroSection() {
@@ -39,54 +31,53 @@ export function HeroSection() {
           backgroundImage:
             "linear-gradient(to right, #e8e8e9 1px, transparent 1px), linear-gradient(to bottom, #e8e8e9 1px, transparent 1px)",
           backgroundSize: "64px 64px",
-          maskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)",
+          maskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)",
         }}
       />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center min-h-screen py-28">
 
-          {/* Left column */}
+          {/* Left */}
           <div className="flex flex-col gap-8">
-            {/* Location pill */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-flex items-center gap-2 w-fit"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
               <span className="text-xs text-brand-500 uppercase tracking-[0.18em]">
-                Sevilla, España · Disponible
+                Sevilla · Neurored
               </span>
             </motion.div>
 
-            {/* Headline */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               <motion.h1
                 className="font-display text-5xl md:text-6xl xl:text-7xl text-brand-900 leading-[1.05] tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               >
-                Salesforce
+                Customer
                 <br />
-                <span className="text-brand-500">Architect</span>
-                <br />& CSM.
+                <span className="text-brand-500">Success</span>
+                <br />
+                Manager.
               </motion.h1>
 
               <motion.p
-                className="text-brand-700 text-lg leading-relaxed max-w-md"
+                className="text-brand-700 text-lg leading-relaxed max-w-sm"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               >
-                Diseño soluciones CRM que conectan el negocio con la tecnología.
-                De los requisitos al despliegue.
+                Que entiende el negocio, lidera el proyecto
+                y sabe construir la solución.
               </motion.p>
             </div>
 
-            {/* CTAs */}
             <motion.div
               className="flex flex-wrap items-center gap-3"
               initial={{ opacity: 0, y: 12 }}
@@ -108,71 +99,29 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right column */}
-          <div className="flex flex-col gap-6">
-            {/* Stats */}
-            <motion.div
-              className="grid grid-cols-3 gap-px bg-brand-100 border border-brand-100 rounded-sm overflow-hidden"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-            >
-              {STATS.map((stat) => (
-                <div key={stat.label} className="bg-white flex flex-col items-center justify-center py-8 px-4 text-center">
-                  <p className="font-display text-4xl text-brand-900 leading-none mb-2">
-                    <CountUp to={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p className="text-xs text-brand-500 leading-tight">{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Certifications */}
-            <motion.div
-              className="flex flex-col gap-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.65, ease: "easeOut" }}
-            >
-              <p className="text-xs text-brand-500 uppercase tracking-widest">
-                Certificaciones Salesforce
-              </p>
-              <div className="flex flex-col gap-2">
-                {CERTS.map((cert, i) => (
-                  <motion.div
-                    key={cert.label}
-                    initial={{ opacity: 0, x: 16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.75 + i * 0.1, ease: "easeOut" }}
-                    className="flex items-center justify-between bg-brand-50 border border-brand-100 rounded-sm px-4 py-3"
-                  >
-                    <div className="flex items-center gap-3">
-                      <BadgeCheck className="w-4 h-4 text-brand-700 shrink-0" strokeWidth={1.5} />
-                      <span className="text-sm text-brand-900 font-medium">
-                        Salesforce Certified {cert.label}
-                      </span>
-                    </div>
-                    <span className="text-xs text-brand-500">{cert.year}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Current role */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.1 }}
-              className="flex items-center gap-3 border-t border-brand-100 pt-4"
-            >
-              <div className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse shrink-0" />
-              <p className="text-xs text-brand-500">
-                Actualmente en{" "}
-                <span className="text-brand-900 font-medium">Neurored</span>
-                {" "}— Customer Success Manager
-              </p>
-            </motion.div>
+          {/* Right — 3 role pillars */}
+          <div className="flex flex-col gap-3">
+            {ROLES.map((role, i) => (
+              <motion.div
+                key={role.tag}
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + i * 0.12, ease: "easeOut" }}
+                className="group bg-white border border-brand-100 rounded-sm p-5 hover:border-brand-300 transition-colors cursor-default"
+              >
+                <p className="text-[10px] text-brand-500 uppercase tracking-widest mb-2">
+                  {role.tag}
+                </p>
+                <p className="font-display text-brand-900 text-lg leading-tight mb-1.5">
+                  {role.headline}
+                </p>
+                <p className="text-sm text-brand-700 leading-relaxed">
+                  {role.body}
+                </p>
+              </motion.div>
+            ))}
           </div>
+
         </div>
       </div>
 
@@ -181,7 +130,7 @@ export function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.3 }}
+        transition={{ delay: 1.1 }}
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}
