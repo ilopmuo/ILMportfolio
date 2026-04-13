@@ -19,7 +19,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
 
   function togglePlay() {
     if (!videoRef.current) return;
@@ -39,7 +39,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <video
             ref={videoRef}
             src={project.previewVideo}
-            autoPlay
             muted
             loop
             playsInline
