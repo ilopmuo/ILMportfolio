@@ -167,7 +167,7 @@ export function TimelineSection() {
             Trayectoria
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-            De dónde vengo.
+            Experiencia.
           </h2>
         </div>
       </AnimatedSection>
