@@ -25,6 +25,24 @@ export const NAV_LINKS = [
   { label: "Contacto", href: "#contact" },
 ];
 
+export const DIFFERENTIATORS = [
+  {
+    numeral: "01",
+    title: "Entiendo el negocio y construyo la solución.",
+    body: "La mayoría elige un lado. Yo trabajo en los dos: entiendo al cliente, diseño la solución y puedo implementarla. No hace falta un intermediario entre el workshop y el sprint.",
+  },
+  {
+    numeral: "02",
+    title: "Documento antes de desarrollar.",
+    body: "Un sprint sin Solution Design acaba en re-work. Mi documentación no es el entregable — es lo que hace predecible al entregable real. El equipo de desarrollo no debería tener que adivinar nada.",
+  },
+  {
+    numeral: "03",
+    title: "Construyo productos fuera del trabajo.",
+    body: "OppsHub, Opotrack, PermSet Builder. No son tutoriales. Son productos que resuelven problemas reales, diseñados y construidos de principio a fin. Eso es la diferencia entre conocer una tecnología y saber usarla.",
+  },
+];
+
 export const COMPETENCY_AREAS = [
   {
     title: "Salesforce Platform",
