@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { TIMELINE } from "@/lib/constants";
@@ -50,12 +49,13 @@ export function TimelineSection() {
                 >
                   {/* Logo */}
                   <div className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 bg-white flex items-center justify-center overflow-hidden">
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src={item.logo}
                       alt={item.company}
                       width={36}
                       height={36}
-                      className="object-contain"
+                      className="object-contain w-9 h-9"
                     />
                   </div>
 

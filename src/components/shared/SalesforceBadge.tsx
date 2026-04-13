@@ -1,17 +1,14 @@
-import Image from "next/image";
-
 export function SalesforceBadge({ name }: { certKey?: string; name: string }) {
   return (
     <div
       className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 bg-white flex items-center justify-center overflow-hidden"
       title={name}
     >
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/salesforce_logo.jpg"
         alt="Salesforce"
-        width={36}
-        height={36}
-        className="object-contain"
+        className="object-contain w-9 h-9"
       />
     </div>
   );
