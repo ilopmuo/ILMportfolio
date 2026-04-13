@@ -17,8 +17,8 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
-      <PhilosophySection />
       <TimelineSection />
+      <PhilosophySection />
       <ProjectsSection projects={projects} />
       <SkillsSection />
       <PostsSection posts={featuredPosts} />
