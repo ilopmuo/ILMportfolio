@@ -18,9 +18,9 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { label: "Sobre mí", href: "#about" },
+  { label: "Trayectoria", href: "#timeline" },
   { label: "Filosofía", href: "#philosophy" },
   { label: "Proyectos", href: "#projects" },
-  { label: "Carrera", href: "#timeline" },
   { label: "Blog", href: "#posts" },
   { label: "Contacto", href: "#contact" },
 ];
