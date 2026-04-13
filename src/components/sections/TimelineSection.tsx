@@ -49,16 +49,14 @@ export function TimelineSection() {
                   className="w-full text-left px-5 py-4 flex items-center gap-4 group"
                 >
                   {/* Logo */}
-                  <div className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 overflow-hidden bg-white flex items-center justify-center">
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={item.logo}
-                        alt={item.company}
-                        fill
-                        className="object-contain p-1"
-                        sizes="40px"
-                      />
-                    </div>
+                  <div className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 bg-white flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={item.logo}
+                      alt={item.company}
+                      width={36}
+                      height={36}
+                      className="object-contain"
+                    />
                   </div>
 
                   {/* Text */}

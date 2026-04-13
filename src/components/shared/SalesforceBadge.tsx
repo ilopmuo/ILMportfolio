@@ -3,18 +3,16 @@ import Image from "next/image";
 export function SalesforceBadge({ name }: { certKey?: string; name: string }) {
   return (
     <div
-      className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 overflow-hidden bg-white flex items-center justify-center"
+      className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 bg-white flex items-center justify-center overflow-hidden"
       title={name}
     >
-      <div className="relative w-full h-full">
-        <Image
-          src="/salesforce_logo.jpg"
-          alt="Salesforce"
-          fill
-          className="object-contain p-1"
-          sizes="40px"
-        />
-      </div>
+      <Image
+        src="/salesforce_logo.jpg"
+        alt="Salesforce"
+        width={36}
+        height={36}
+        className="object-contain"
+      />
     </div>
   );
 }
