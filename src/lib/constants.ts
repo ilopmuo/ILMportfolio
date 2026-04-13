@@ -27,71 +27,39 @@ export const NAV_LINKS = [
 
 export const COMPETENCY_AREAS = [
   {
-    title: "Salesforce Architecture",
+    title: "Salesforce Platform",
     description:
-      "Diseño funcional y técnico de soluciones completas: data model, automatizaciones, seguridad y flujos operativos.",
-    skills: [
-      "Sales Cloud",
-      "Service Cloud",
-      "Flows avanzados",
-      "Apex",
-      "LWC",
-      "Permission Sets",
-      "APIs REST/SOAP",
-    ],
-    depth: 92,
+      "Implementación y arquitectura en Sales Cloud y Service Cloud. Data model, automatizaciones complejas con Flows, seguridad por perfiles y permisos, e integraciones con sistemas externos.",
+    skills: ["Sales Cloud", "Service Cloud", "Flows avanzados", "Apex", "LWC", "Permission Sets", "APIs REST/SOAP"],
+    depth: 90,
   },
   {
-    title: "Customer Success & Consultoría",
+    title: "Customer Success",
     description:
-      "Gestión de relaciones con clientes empresariales, liderazgo de workshops y traducción de requisitos en soluciones escalables.",
-    skills: [
-      "Workshops",
-      "Solution Design",
-      "Requirements gathering",
-      "Demos complejas",
-      "Onboarding",
-    ],
+      "Gestión directa de clientes internacionales desde el análisis de requisitos hasta el go-live. Workshops, validaciones funcionales y seguimiento continuo del proyecto.",
+    skills: ["Workshops", "Solution Design", "Requirements gathering", "Onboarding", "Gestión de stakeholders"],
     depth: 88,
   },
   {
-    title: "Desarrollo & Integración",
+    title: "Gestión de Proyectos",
     description:
-      "Construcción técnica de componentes, integraciones con sistemas externos y automatizaciones de backend.",
-    skills: [
-      "Apex",
-      "Lightning Web Components",
-      "REST/SOAP APIs",
-      "CI/CD",
-      "JavaScript",
-      "Java",
-    ],
-    depth: 82,
+      "Coordinación entre negocio, producto y desarrollo. Priorización de roadmap, documentación técnica y funcional, y alineación de entregas con expectativas del cliente.",
+    skills: ["Roadmapping", "User Stories", "Acceptance Criteria", "Coordinación de equipos", "Solution Designs"],
+    depth: 85,
   },
   {
-    title: "Gestión de Proyectos IA",
+    title: "Desarrollo",
     description:
-      "Coordinación de equipos técnicos y de producto, priorización de roadmaps y adopción de herramientas de IA en operaciones.",
-    skills: [
-      "AI Associate (Salesforce)",
-      "Prompt Engineering",
-      "Coordinación producto/QA",
-      "Roadmapping",
-    ],
-    depth: 75,
+      "Construcción técnica de componentes Salesforce e integraciones con sistemas externos. También desarrollo full-stack de productos propios con React, Next.js y Supabase.",
+    skills: ["Apex", "LWC", "REST APIs", "CI/CD", "React", "Next.js", "Supabase", "Electron"],
+    depth: 80,
   },
   {
-    title: "Documentación & Comunicación",
+    title: "Comunicación técnica",
     description:
-      "Elaboración de documentación técnica y funcional clara, desde user stories hasta arquitecturas completas.",
-    skills: [
-      "Solution Designs",
-      "User Stories",
-      "Acceptance Criteria",
-      "Technical Writing",
-      "Presentaciones ejecutivas",
-    ],
-    depth: 90,
+      "Documentación funcional y técnica clara para equipos y clientes. Trabajo en inglés a diario con freightforwarders internacionales y equipos distribuidos.",
+    skills: ["Technical Writing", "Presentaciones ejecutivas", "Inglés B2 Cambridge", "Documentación funcional"],
+    depth: 88,
   },
 ];
 
