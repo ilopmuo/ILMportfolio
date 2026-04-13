@@ -30,7 +30,7 @@ export function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTitleIndex((i) => (i + 1) % TITLES.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -73,7 +73,7 @@ export function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
               <h1 className="font-display text-5xl md:text-6xl xl:text-7xl text-brand-900 leading-[1.1] tracking-tight">
-                <div className="h-[1.1em] overflow-hidden relative">
+                <div className="h-[2.4em] overflow-hidden relative">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={titleIndex}
