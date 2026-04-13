@@ -136,10 +136,11 @@ export const TIMELINE = [
     isAIEra: true,
     summary: "Gestión de proyectos de implementación y mantenimiento de Salesforce para freightforwarders internacionales.",
     bullets: [
-      "Liderazgo de workshops con clientes internacionales",
-      "Elaboración de Solution Designs completos: data model, flujos, permisos y APIs",
-      "Coordinación con Product Office y desarrollo para priorizar bugs y mejoras",
-      "Demos complejas para perfiles sin conocimiento técnico",
+      "Gestión end-to-end de proyectos: desde el análisis de requisitos hasta el go-live",
+      "Diseño funcional de soluciones: arquitectura de datos, flujos de negocio y gestión de permisos",
+      "Interlocución directa con clientes internacionales: workshops, validaciones y seguimiento",
+      "Coordinación entre negocio, producto y desarrollo para alinear entregas y prioridades",
+      "Elaboración de documentación técnica y funcional: Solution Designs, user stories y criterios de aceptación",
     ],
   },
   {
