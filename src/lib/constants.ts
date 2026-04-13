@@ -151,11 +151,11 @@ export const TIMELINE = [
     logo: "/seidor_logo.jpg",
     type: "work" as const,
     isAIEra: true,
-    summary: "Desarrollo técnico de componentes y automatizaciones avanzadas.",
+    summary: "Desarrollo técnico en proyectos Salesforce para clientes del sector hotelero y bancario.",
     bullets: [
-      "Desarrollo de Lightning Web Components y Apex",
-      "Integración con APIs externas y lógica de backend",
-      "Participación en despliegues, revisiones de código y CI/CD",
+      "Desarrollo de Lightning Web Components y clases Apex para Sales Cloud y Service Cloud",
+      "Integración con sistemas externos mediante APIs REST y lógica de backend personalizada",
+      "Gestión de despliegues, revisiones de código y pipelines CI/CD en entornos de cliente",
     ],
   },
   {
@@ -166,11 +166,11 @@ export const TIMELINE = [
     logo: "/seidor_logo.jpg",
     type: "work" as const,
     isAIEra: false,
-    summary: "Primeros pasos en Salesforce: configuración, automatización y soporte funcional.",
+    summary: "Configuración y automatización de Salesforce en proyectos de implantación para clientes empresariales.",
     bullets: [
-      "Automatización de procesos con Flows avanzados",
-      "Optimización de dashboards y reportes",
-      "Soporte funcional en Sales Cloud y Service Cloud",
+      "Automatización de procesos de negocio con Flows: aprobaciones, asignaciones y notificaciones",
+      "Configuración de Sales Cloud y Service Cloud: objetos, perfiles, permisos y vistas",
+      "Mantenimiento y optimización de reportes y dashboards para equipos comerciales y de soporte",
     ],
   },
   {
