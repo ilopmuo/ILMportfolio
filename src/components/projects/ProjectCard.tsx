@@ -68,16 +68,29 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </div>
 
-      {/* CTA */}
-      {project.caseStudyAvailable && (
-        <Link
-          href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1.5 text-xs text-brand-700 hover:text-brand-900 transition-colors group-hover:gap-2.5"
-        >
-          Leer caso de estudio
-          <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={1.5} />
-        </Link>
-      )}
+      {/* CTAs */}
+      <div className="flex items-center gap-4">
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-brand-900 font-medium hover:text-brand-700 transition-colors group-hover:gap-2.5"
+          >
+            Ver proyecto
+            <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={1.5} />
+          </a>
+        )}
+        {project.caseStudyAvailable && (
+          <Link
+            href={`/projects/${project.slug}`}
+            className="inline-flex items-center gap-1.5 text-xs text-brand-500 hover:text-brand-900 transition-colors"
+          >
+            Caso de estudio
+            <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={1.5} />
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
