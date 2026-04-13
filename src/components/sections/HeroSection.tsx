@@ -73,24 +73,22 @@ export function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
               <h1 className="font-display text-5xl md:text-6xl xl:text-7xl text-brand-900 leading-[1.1] tracking-tight">
-                <div className="h-[2.4em] overflow-hidden relative">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={titleIndex}
-                      className="block"
-                      initial={{ y: "100%", opacity: 0 }}
-                      animate={{ y: "0%", opacity: 1 }}
-                      exit={{ y: "-100%", opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                      onClick={() => setTitleIndex((i) => (i + 1) % TITLES.length)}
-                      style={{ cursor: "pointer" }}
-                      title="Haz clic para cambiar"
-                    >
-                      {TITLES[titleIndex]}
-                      <span className="text-brand-500">.</span>
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={titleIndex}
+                    className="block"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    onClick={() => setTitleIndex((i) => (i + 1) % TITLES.length)}
+                    style={{ cursor: "pointer" }}
+                    title="Haz clic para cambiar"
+                  >
+                    {TITLES[titleIndex]}
+                    <span className="text-brand-500">.</span>
+                  </motion.span>
+                </AnimatePresence>
               </h1>
             </motion.div>
 
