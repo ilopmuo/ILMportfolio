@@ -4,13 +4,16 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
-import { PHILOSOPHY_PRINCIPLES } from "@/lib/constants";
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
+
+type Principle = (typeof translations)["es"]["philosophy"]["principles"][number];
 
 function PrincipleCard({
   principle,
   index,
 }: {
-  principle: (typeof PHILOSOPHY_PRINCIPLES)[number];
+  principle: Principle;
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -58,21 +61,24 @@ function PrincipleCard({
 }
 
 export function PhilosophySection() {
+  const { lang } = useLang();
+  const t = translations[lang].philosophy;
+
   return (
     <SectionWrapper id="philosophy" className="border-t border-brand-100">
       <AnimatedSection>
         <div className="mb-12">
           <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-            Cómo pienso
+            {t.supertitle}
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight max-w-2xl">
-            Qué guía mi forma de trabajar.
+            {t.heading}
           </h2>
         </div>
       </AnimatedSection>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {PHILOSOPHY_PRINCIPLES.map((principle, i) => (
+        {t.principles.map((principle, i) => (
           <PrincipleCard key={principle.numeral} principle={principle} index={i} />
         ))}
       </div>

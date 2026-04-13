@@ -5,9 +5,10 @@ import { motion, useInView } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 const SF_SKILLS = ["Sales Cloud", "Service Cloud", "Flows", "Apex", "LWC", "Permission Sets", "APIs REST/SOAP", "Salesforce DX"];
-const CSM_SKILLS = ["Gestión de proyectos", "Planificación y estimación", "Control de presupuesto", "Gestión de riesgos", "Seguimiento de hitos", "Coordinación de equipos", "Solution Design", "Requirements gathering", "Workshops"];
 const DEV_SKILLS = ["React", "Next.js", "TypeScript", "Supabase", "Electron", "Node.js", "Tailwind"];
 
 function Card({
@@ -35,15 +36,18 @@ function Card({
 }
 
 export function SkillsSection() {
+  const { lang } = useLang();
+  const t = translations[lang].skills;
+
   return (
     <SectionWrapper id="skills" className="border-t border-brand-100">
       <AnimatedSection>
         <div className="mb-12">
           <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-            Propuesta de valor
+            {t.supertitle}
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-            Lo que aporto.
+            {t.heading}
           </h2>
         </div>
       </AnimatedSection>
@@ -53,13 +57,13 @@ export function SkillsSection() {
         {/* Customer Success & PM — dark, featured */}
         <Card delay={0} className="col-span-2 bg-brand-900 rounded-sm p-7 flex flex-col gap-5">
           <div>
-            <p className="text-xs text-brand-400 uppercase tracking-widest mb-2">Customer Success & Gestión</p>
+            <p className="text-xs text-brand-400 uppercase tracking-widest mb-2">{t.csm_label}</p>
             <p className="font-display text-white text-2xl leading-tight">
-              Gestión de cliente end to end.
+              {t.csm_tagline}
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            {CSM_SKILLS.map((s) => (
+            {t.csm_skills.map((s) => (
               <span key={s} className="text-xs px-2.5 py-1 border border-brand-700 text-brand-300 rounded-sm">
                 {s}
               </span>
@@ -69,28 +73,28 @@ export function SkillsSection() {
 
         {/* Stat — 3 certs */}
         <Card delay={0.08} className="col-span-1 border border-brand-100 rounded-sm p-6 flex flex-col justify-between bg-white">
-          <p className="text-xs text-brand-400 uppercase tracking-widest">Certificaciones</p>
+          <p className="text-xs text-brand-400 uppercase tracking-widest">{t.certs_label}</p>
           <div>
             <p className="font-display text-6xl text-brand-900 leading-none">3</p>
-            <p className="text-xs text-brand-500 mt-1">Salesforce activas</p>
+            <p className="text-xs text-brand-500 mt-1">{t.certs_sub}</p>
           </div>
         </Card>
 
         {/* Stat — años */}
         <Card delay={0.12} className="col-span-1 border border-brand-100 rounded-sm p-6 flex flex-col justify-between bg-white">
-          <p className="text-xs text-brand-400 uppercase tracking-widest">Experiencia</p>
+          <p className="text-xs text-brand-400 uppercase tracking-widest">{t.exp_label}</p>
           <div>
             <p className="font-display text-6xl text-brand-900 leading-none">3+</p>
-            <p className="text-xs text-brand-500 mt-1">años en Salesforce</p>
+            <p className="text-xs text-brand-500 mt-1">{t.exp_sub}</p>
           </div>
         </Card>
 
         {/* Salesforce — dark, featured */}
         <Card delay={0.16} className="col-span-2 bg-brand-900 rounded-sm p-7 flex flex-col gap-5">
           <div>
-            <p className="text-xs text-brand-400 uppercase tracking-widest mb-2">Salesforce Platform</p>
+            <p className="text-xs text-brand-400 uppercase tracking-widest mb-2">{t.sf_label}</p>
             <p className="font-display text-white text-2xl leading-tight">
-              Tech core.
+              {t.sf_tagline}
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -104,7 +108,7 @@ export function SkillsSection() {
 
         {/* B2 stat */}
         <Card delay={0.2} className="col-span-1 border border-brand-100 rounded-sm p-6 flex flex-col justify-between bg-white">
-          <p className="text-xs text-brand-400 uppercase tracking-widest">Inglés</p>
+          <p className="text-xs text-brand-400 uppercase tracking-widest">{t.eng_label}</p>
           <div>
             <p className="font-display text-6xl text-brand-900 leading-none">B2</p>
             <p className="text-xs text-brand-500 mt-1">Cambridge</p>
@@ -113,16 +117,16 @@ export function SkillsSection() {
 
         {/* Grado */}
         <Card delay={0.24} className="col-span-1 border border-brand-100 rounded-sm p-6 flex flex-col justify-between bg-white">
-          <p className="text-xs text-brand-400 uppercase tracking-widest">Titulación</p>
+          <p className="text-xs text-brand-400 uppercase tracking-widest">{t.degree_label}</p>
           <div>
-            <p className="font-display text-brand-900 text-lg leading-tight">Ing. Informática</p>
-            <p className="text-xs text-brand-500 mt-1">Sistemas de Información</p>
+            <p className="font-display text-brand-900 text-lg leading-tight">{t.degree_name}</p>
+            <p className="text-xs text-brand-500 mt-1">{t.degree_sub}</p>
           </div>
         </Card>
 
         {/* Desarrollo */}
         <Card delay={0.28} className="col-span-2 lg:col-span-1 border border-brand-100 rounded-sm p-6 flex flex-col gap-4 bg-white">
-          <p className="text-xs text-brand-400 uppercase tracking-widest">Desarrollo</p>
+          <p className="text-xs text-brand-400 uppercase tracking-widest">{t.dev_label}</p>
           <div className="flex flex-wrap gap-1.5">
             {DEV_SKILLS.map((s) => (
               <span key={s} className="text-xs px-2.5 py-1 border border-brand-100 text-brand-600 rounded-sm bg-brand-50">
@@ -134,15 +138,11 @@ export function SkillsSection() {
 
         {/* Proyectos propios */}
         <Card delay={0.32} className="col-span-2 lg:col-span-3 border border-brand-100 rounded-sm p-6 flex flex-col justify-between gap-5 bg-white">
-          <p className="text-xs text-brand-400 uppercase tracking-widest">Proyectos y soluciones fuera del trabajo</p>
+          <p className="text-xs text-brand-400 uppercase tracking-widest">{t.projects_label}</p>
           <div className="flex flex-col gap-2">
-            {[
-              { name: "OppsHub — Gestión de proyectos", href: "https://opps-hub.vercel.app/" },
-              { name: "Opotrack — Tracker de oposiciones", href: "https://opos-track.vercel.app/" },
-              { name: "PermSet Builder — Herramienta Salesforce", href: "https://permsetbuilder.vercel.app/" },
-            ].map((p) => (
+            {t.projects.map((p) => (
               <a
-                key={p.name}
+                key={p.href}
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"

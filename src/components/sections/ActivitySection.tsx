@@ -1,8 +1,11 @@
+"use client";
+
 import { ArrowUpRight, GitCommitHorizontal, Rss } from "lucide-react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
-import { getRecentRepos } from "@/lib/github";
-import { getSalesforceNews, formatRSSDate } from "@/lib/rss";
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
+import { formatRSSDate } from "@/lib/rss";
 
 const LANG_COLORS: Record<string, string> = {
   TypeScript: "bg-blue-400",
@@ -12,21 +15,38 @@ const LANG_COLORS: Record<string, string> = {
   Apex: "bg-cyan-400",
 };
 
-export async function ActivitySection() {
-  const [repos, news] = await Promise.all([
-    getRecentRepos(),
-    getSalesforceNews(),
-  ]);
+interface Repo {
+  name: string;
+  html_url: string;
+  description: string | null;
+  language: string | null;
+  stargazers_count: number;
+}
+
+interface NewsItem {
+  title: string;
+  link: string;
+  pubDate?: string;
+}
+
+interface ActivitySectionProps {
+  repos: Repo[];
+  news: NewsItem[];
+}
+
+export function ActivitySection({ repos, news }: ActivitySectionProps) {
+  const { lang } = useLang();
+  const t = translations[lang].activity;
 
   return (
     <SectionWrapper id="activity" className="border-t border-brand-100">
       <AnimatedSection>
         <div className="mb-12">
           <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-            Integraciones
+            {t.supertitle}
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-            GitHub y Salesforce.
+            {t.heading}
           </h2>
         </div>
       </AnimatedSection>
@@ -37,11 +57,11 @@ export async function ActivitySection() {
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2 mb-1">
             <GitCommitHorizontal className="w-4 h-4 text-brand-400" strokeWidth={1.5} />
-            <p className="text-xs text-brand-500 uppercase tracking-widest">GitHub — ilopmuo</p>
+            <p className="text-xs text-brand-500 uppercase tracking-widest">{t.github_label}</p>
           </div>
 
           {repos.length === 0 ? (
-            <p className="text-sm text-brand-400">No se pudieron cargar los repositorios.</p>
+            <p className="text-sm text-brand-400">{t.repos_empty}</p>
           ) : (
             <div className="flex flex-col gap-3">
               {repos.map((repo) => (
@@ -82,11 +102,11 @@ export async function ActivitySection() {
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2 mb-1">
             <Rss className="w-4 h-4 text-brand-400" strokeWidth={1.5} />
-            <p className="text-xs text-brand-500 uppercase tracking-widest">Salesforce — Últimas novedades</p>
+            <p className="text-xs text-brand-500 uppercase tracking-widest">{t.sf_label}</p>
           </div>
 
           {news.length === 0 ? (
-            <p className="text-sm text-brand-400">No se pudieron cargar las novedades.</p>
+            <p className="text-sm text-brand-400">{t.news_empty}</p>
           ) : (
             <div className="flex flex-col divide-y divide-brand-100 border border-brand-100 rounded-sm overflow-hidden">
               {news.map((item, i) => (

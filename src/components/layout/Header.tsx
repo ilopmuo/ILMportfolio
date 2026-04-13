@@ -5,10 +5,13 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
-
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 import { cn } from "@/lib/utils";
 
 export function Header() {
+  const { lang, toggle } = useLang();
+  const t = translations[lang].nav;
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -86,7 +89,7 @@ export function Header() {
                   isActive ? "text-brand-900" : "text-brand-500 hover:text-brand-900"
                 )}
               >
-                {link.label}
+                {t[link.key as keyof typeof t]}
                 {/* Animated underline */}
                 <span
                   className={cn(
@@ -99,8 +102,17 @@ export function Header() {
           })}
         </nav>
 
+        {/* Lang toggle */}
+        <button
+          onClick={toggle}
+          className="hidden md:inline-flex items-center text-xs font-medium border border-brand-200 text-brand-500 hover:border-brand-700 hover:text-brand-900 transition-colors px-2.5 py-1 rounded-sm ml-4"
+          aria-label="Toggle language"
+        >
+          {lang === "es" ? "EN" : "ES"}
+        </button>
+
         {/* Social icons */}
-        <div className="hidden md:flex items-center gap-4 ml-6 border-l border-brand-100 pl-6">
+        <div className="hidden md:flex items-center gap-4 ml-4 border-l border-brand-100 pl-4">
           <a
             href={SITE_CONFIG.social.linkedin}
             target="_blank"
@@ -184,9 +196,15 @@ export function Header() {
                   className="text-sm text-brand-700 hover:text-brand-900 transition-colors py-2"
                   onClick={() => setMobileOpen(false)}
                 >
-                  {link.label}
+                  {t[link.key as keyof typeof t]}
                 </motion.a>
               ))}
+              <button
+                onClick={() => { toggle(); setMobileOpen(false); }}
+                className="self-start mt-2 text-xs font-medium border border-brand-200 text-brand-500 px-2.5 py-1 rounded-sm"
+              >
+                {lang === "es" ? "EN" : "ES"}
+              </button>
             </div>
           </motion.div>
         )}

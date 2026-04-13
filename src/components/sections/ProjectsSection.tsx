@@ -6,23 +6,26 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import type { Project } from "@/types/project";
-
-const ALL_FILTER = "Todos";
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 interface ProjectsSectionProps {
   projects: Project[];
 }
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
+  const { lang } = useLang();
+  const t = translations[lang].projects;
+
   const allTags = Array.from(
     new Set(projects.flatMap((p) => p.tags))
   ).slice(0, 6);
 
-  const filters = [ALL_FILTER, ...allTags];
-  const [active, setActive] = useState(ALL_FILTER);
+  const filters = [t.all_filter, ...allTags];
+  const [active, setActive] = useState(t.all_filter);
 
   const filtered =
-    active === ALL_FILTER
+    active === t.all_filter
       ? projects
       : projects.filter((p) => p.tags.includes(active));
 
@@ -32,10 +35,10 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <div>
             <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-              Proyectos personales
+              {t.supertitle}
             </p>
             <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-              Lo que construyo fuera del trabajo.
+              {t.heading}
             </h2>
           </div>
         </div>

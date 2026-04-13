@@ -4,11 +4,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
-import { TIMELINE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { MapPin, Plus, Minus } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
-type TimelineItem = (typeof TIMELINE)[number];
+type TimelineItem = (typeof translations)["es"]["timeline"]["items"][number];
 
 function TimelineCard({
   item,
@@ -21,7 +22,7 @@ function TimelineCard({
   isOpen: boolean;
   onToggle: () => void;
 }) {
-  const isCurrent = item.period.includes("Actualidad");
+  const isCurrent = item.isAIEra && item.period.includes("Actualidad") || item.period.includes("Present");
 
   return (
     <motion.div
@@ -153,8 +154,11 @@ function TimelineCard({
 }
 
 export function TimelineSection() {
-  const workItems = TIMELINE.filter((i) => i.type === "work");
-  const eduItems = TIMELINE.filter((i) => i.type === "education");
+  const { lang } = useLang();
+  const t = translations[lang].timeline;
+
+  const workItems = t.items.filter((i) => i.type === "work");
+  const eduItems = t.items.filter((i) => i.type === "education");
 
   const [openWork, setOpenWork] = useState<number>(0);
   const [openEdu, setOpenEdu] = useState<number>(-1);
@@ -164,10 +168,10 @@ export function TimelineSection() {
       <AnimatedSection>
         <div className="mb-14">
           <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-            Trayectoria
+            {t.supertitle}
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-            Experiencia.
+            {t.heading}
           </h2>
         </div>
       </AnimatedSection>
@@ -176,7 +180,7 @@ export function TimelineSection() {
         {/* Work */}
         <div className="flex flex-col gap-4">
           <p className="text-xs text-brand-500 uppercase tracking-widest mb-1">
-            Experiencia
+            {t.work_label}
           </p>
           <div className="flex flex-col gap-3">
             {workItems.map((item, i) => (
@@ -194,7 +198,7 @@ export function TimelineSection() {
         {/* Education */}
         <div className="flex flex-col gap-4">
           <p className="text-xs text-brand-500 uppercase tracking-widest mb-1">
-            Formación
+            {t.edu_label}
           </p>
           <div className="flex flex-col gap-3">
             {eduItems.map((item, i) => (

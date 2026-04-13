@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { Download } from "lucide-react";
 import { CVDocument } from "./CVDocument";
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 const PDFDownloadLink = dynamic(
   () => import("@react-pdf/renderer").then((m) => m.PDFDownloadLink),
@@ -11,6 +13,8 @@ const PDFDownloadLink = dynamic(
 );
 
 export function CVDownloadButton() {
+  const { lang } = useLang();
+  const t = translations[lang].hero;
   const [ready, setReady] = useState(false);
   const [photoUrl, setPhotoUrl] = useState("");
 
@@ -26,7 +30,7 @@ export function CVDownloadButton() {
         className="inline-flex items-center gap-2 border border-brand-300 text-brand-400 text-sm px-5 py-3 rounded-sm cursor-not-allowed"
       >
         <Download className="w-3.5 h-3.5" strokeWidth={1.5} />
-        Exportar CV
+        {t.cta_cv}
       </button>
     );
   }
@@ -40,7 +44,7 @@ export function CVDownloadButton() {
       {({ loading }) => (
         <>
           <Download className="w-3.5 h-3.5" strokeWidth={1.5} />
-          {loading ? "Generando..." : "Exportar CV"}
+          {loading ? t.cv_generating : t.cta_cv}
         </>
       )}
     </PDFDownloadLink>

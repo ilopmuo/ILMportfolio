@@ -16,13 +16,13 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_LINKS = [
-  { label: "Sobre mí", href: "/#about" },
-  { label: "Lo que aporto", href: "/#skills" },
-  { label: "Trayectoria", href: "/#timeline" },
-  { label: "Proyectos", href: "/#projects" },
-  { label: "Filosofía", href: "/#philosophy" },
-  { label: "Integraciones", href: "/#activity" },
-  { label: "Contacto", href: "/#contact" },
+  { key: "about", href: "/#about" },
+  { key: "skills", href: "/#skills" },
+  { key: "timeline", href: "/#timeline" },
+  { key: "projects", href: "/#projects" },
+  { key: "philosophy", href: "/#philosophy" },
+  { key: "activity", href: "/#activity" },
+  { key: "contact", href: "/#contact" },
 ];
 
 export const DIFFERENTIATORS = [

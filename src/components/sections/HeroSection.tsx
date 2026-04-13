@@ -4,36 +4,20 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { CVDownloadButton } from "@/components/cv/CVDownloadButton";
-
-const ROLES = [
-  {
-    tag: "Customer Success",
-    headline: "Entiendo al cliente.",
-    body: "Workshops, requisitos y relación.",
-  },
-  {
-    tag: "Project Lead",
-    headline: "Coordino y entrego.",
-    body: "Gestión de cliente end to end.",
-  },
-  {
-    tag: "Desarrollo",
-    headline: "Desarrollo.",
-    body: "Apex, LWC y APIs.",
-  },
-];
-
-const TITLES = ["Customer Success Manager", "Project Lead", "Developer"];
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export function HeroSection() {
+  const { lang } = useLang();
+  const t = translations[lang].hero;
   const [titleIndex, setTitleIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTitleIndex((i) => (i + 1) % TITLES.length);
+      setTitleIndex((i) => (i + 1) % t.titles.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [t.titles.length]);
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
@@ -62,7 +46,7 @@ export function HeroSection() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
               <span className="text-xs text-brand-500 uppercase tracking-[0.18em]">
-                Sevilla · Neurored
+                {t.location}
               </span>
             </motion.div>
 
@@ -76,17 +60,17 @@ export function HeroSection() {
               <h1 className="font-display text-5xl md:text-6xl xl:text-7xl text-brand-900 leading-[1.1] tracking-tight">
                 <AnimatePresence mode="wait">
                   <motion.span
-                    key={titleIndex}
+                    key={`${lang}-${titleIndex}`}
                     className="block"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    onClick={() => setTitleIndex((i) => (i + 1) % TITLES.length)}
+                    onClick={() => setTitleIndex((i) => (i + 1) % t.titles.length)}
                     style={{ cursor: "pointer" }}
-                    title="Haz clic para cambiar"
+                    title="Click to change"
                   >
-                    {TITLES[titleIndex]}
+                    {t.titles[titleIndex]}
                     <span className="text-brand-500">.</span>
                   </motion.span>
                 </AnimatePresence>
@@ -100,29 +84,29 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
             >
               <a
-                href="#projects"
+                href="/#projects"
                 className="bg-brand-900 text-white text-sm px-6 py-3 rounded-sm hover:bg-brand-700 transition-colors"
               >
-                Ver proyectos
+                {t.cta_projects}
               </a>
               <a
-                href="#contact"
+                href="/#contact"
                 className="border border-brand-300 text-brand-700 text-sm px-6 py-3 rounded-sm hover:border-brand-700 hover:text-brand-900 transition-colors"
               >
-                Contactar
+                {t.cta_contact}
               </a>
               <CVDownloadButton />
 
               {/* Dots indicator */}
               <div className="flex items-center gap-1.5 ml-1">
-                {TITLES.map((_, i) => (
+                {t.titles.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setTitleIndex(i)}
                     className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                       i === titleIndex ? "bg-brand-900 w-4" : "bg-brand-300"
                     }`}
-                    aria-label={TITLES[i]}
+                    aria-label={t.titles[i]}
                   />
                 ))}
               </div>
@@ -131,7 +115,7 @@ export function HeroSection() {
 
           {/* Right — 3 role pillars */}
           <div className="flex flex-col gap-3">
-            {ROLES.map((role, i) => (
+            {t.roles.map((role, i) => (
               <motion.div
                 key={role.tag}
                 initial={{ opacity: 0, x: 24 }}

@@ -1,10 +1,17 @@
+"use client";
+
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { ContactForm } from "@/components/shared/ContactForm";
 import { SITE_CONFIG } from "@/lib/constants";
 import { Mail, MapPin } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export function ContactSection() {
+  const { lang } = useLang();
+  const t = translations[lang].contact;
+
   return (
     <SectionWrapper id="contact" className="border-t border-brand-100">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
@@ -13,15 +20,15 @@ export function ContactSection() {
           <div className="flex flex-col gap-6">
             <div>
               <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-                Contacto
+                {t.supertitle}
               </p>
               <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-                Hablamos.
+                {t.heading}
               </h2>
             </div>
 
             <p className="text-brand-700 text-base leading-relaxed">
-              Si tienes un proyecto Salesforce, una oportunidad o simplemente quieres hacer una consulta, escríbeme.
+              {t.description}
             </p>
 
             <div className="flex flex-col gap-4 pt-2">

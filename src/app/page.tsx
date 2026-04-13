@@ -7,9 +7,15 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ActivitySection } from "@/components/sections/ActivitySection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { getAllProjects } from "@/lib/projects";
+import { getRecentRepos } from "@/lib/github";
+import { getSalesforceNews } from "@/lib/rss";
 
-export default function Home() {
-  const projects = getAllProjects();
+export default async function Home() {
+  const [projects, repos, news] = await Promise.all([
+    Promise.resolve(getAllProjects()),
+    getRecentRepos(),
+    getSalesforceNews(),
+  ]);
 
   return (
     <>
@@ -19,7 +25,7 @@ export default function Home() {
       <TimelineSection />
       <ProjectsSection projects={projects} />
       <PhilosophySection />
-      <ActivitySection />
+      <ActivitySection repos={repos} news={news} />
       <ContactSection />
     </>
   );
