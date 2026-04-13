@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 
 const ROLES = [
@@ -21,7 +22,18 @@ const ROLES = [
   },
 ];
 
+const TITLES = ["Customer Success Manager", "Project Lead", "Developer"];
+
 export function HeroSection() {
+  const [titleIndex, setTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTitleIndex((i) => (i + 1) % TITLES.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Subtle grid background */}
@@ -53,29 +65,34 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            <div className="flex flex-col gap-4">
-              <motion.h1
-                className="font-display text-5xl md:text-6xl xl:text-7xl text-brand-900 leading-[1.05] tracking-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-              >
-                Customer
-                <br />
-                <span className="text-brand-500">Success</span>
-                <br />
-                Manager.
-              </motion.h1>
-
-              <motion.p
-                className="text-brand-700 text-lg leading-relaxed max-w-sm"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              >
-                Del requisito al despliegue.
-              </motion.p>
-            </div>
+            {/* Animated title */}
+            <motion.div
+              className="flex flex-col gap-2"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            >
+              <h1 className="font-display text-5xl md:text-6xl xl:text-7xl text-brand-900 leading-[1.1] tracking-tight">
+                <div className="h-[1.1em] overflow-hidden relative">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={titleIndex}
+                      className="block"
+                      initial={{ y: "100%", opacity: 0 }}
+                      animate={{ y: "0%", opacity: 1 }}
+                      exit={{ y: "-100%", opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      onClick={() => setTitleIndex((i) => (i + 1) % TITLES.length)}
+                      style={{ cursor: "pointer" }}
+                      title="Haz clic para cambiar"
+                    >
+                      {TITLES[titleIndex]}
+                      <span className="text-brand-500">.</span>
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
+              </h1>
+            </motion.div>
 
             <motion.div
               className="flex flex-wrap items-center gap-3"
@@ -95,6 +112,20 @@ export function HeroSection() {
               >
                 Contactar
               </a>
+
+              {/* Dots indicator */}
+              <div className="flex items-center gap-1.5 ml-1">
+                {TITLES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setTitleIndex(i)}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                      i === titleIndex ? "bg-brand-900 w-4" : "bg-brand-300"
+                    }`}
+                    aria-label={TITLES[i]}
+                  />
+                ))}
+              </div>
             </motion.div>
           </div>
 
