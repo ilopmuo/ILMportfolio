@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
     "Transformo requisitos complejos en soluciones Salesforce que escalan.",
   description:
     "Portfolio de Ignacio López — Salesforce Architect y Customer Success Manager especializado en diseño funcional, automatización avanzada y despliegue de soluciones CRM para clientes internacionales.",
-  url: "https://ignaciolopez.dev",
+  url: "https://www.xn--ignaciolopezmuoyerro-h7b.com",
   location: "Sevilla, España",
   email: "Ignacio.odi4@gmail.com",
   phone: "+34 665 918 520",
