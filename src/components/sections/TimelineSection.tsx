@@ -6,7 +6,7 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { TIMELINE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { MapPin, ChevronDown, Briefcase, GraduationCap } from "lucide-react";
+import { MapPin, Plus, Minus, Briefcase, GraduationCap } from "lucide-react";
 
 export function TimelineSection() {
   const [openIndex, setOpenIndex] = useState<number>(0);
@@ -24,18 +24,7 @@ export function TimelineSection() {
         </div>
       </AnimatedSection>
 
-      <div className="relative flex flex-col">
-        {/* Animated vertical line */}
-        <div className="absolute left-[19px] top-0 bottom-0 w-px bg-brand-100 hidden md:block" />
-        <motion.div
-          className="absolute left-[19px] top-0 w-px bg-brand-300 hidden md:block origin-top"
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          style={{ bottom: 0 }}
-        />
-
+      <div className="flex flex-col gap-3">
         {TIMELINE.map((item, index) => {
           const isOpen = openIndex === index;
           const Icon = item.type === "education" ? GraduationCap : Briefcase;
@@ -43,101 +32,123 @@ export function TimelineSection() {
           return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              className="relative flex gap-6 md:gap-10 pb-8 last:pb-0"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
             >
-              {/* Node */}
-              <div className="hidden md:flex flex-col items-center shrink-0 pt-1">
-                <motion.div
-                  className={cn(
-                    "w-10 h-10 rounded-sm border flex items-center justify-center z-10 transition-colors duration-300",
-                    isOpen
-                      ? item.isAIEra
-                        ? "bg-brand-900 border-brand-900"
-                        : "bg-brand-700 border-brand-700"
-                      : "bg-white border-brand-200"
-                  )}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Icon
-                    className={cn(
-                      "w-4 h-4 transition-colors duration-300",
-                      isOpen ? "text-white" : "text-brand-400"
-                    )}
-                    strokeWidth={1.5}
-                  />
-                </motion.div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 min-w-0">
+              <div
+                className={cn(
+                  "rounded-sm border transition-colors duration-300 overflow-hidden",
+                  isOpen
+                    ? "border-brand-300 bg-white"
+                    : "border-brand-100 bg-white hover:border-brand-200"
+                )}
+              >
+                {/* Header — always visible */}
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className="w-full text-left group"
+                  className="w-full text-left px-5 py-5 flex items-center gap-4 group"
                 >
-                  <div className="flex items-start justify-between gap-4 py-2">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-xs text-brand-500 uppercase tracking-wider">
-                        {item.period}
-                      </span>
+                  {/* Icon */}
+                  <div
+                    className={cn(
+                      "shrink-0 w-9 h-9 rounded-sm flex items-center justify-center transition-colors duration-300",
+                      isOpen
+                        ? "bg-brand-900"
+                        : "bg-brand-50 group-hover:bg-brand-100"
+                    )}
+                  >
+                    <Icon
+                      className={cn(
+                        "w-4 h-4 transition-colors duration-300",
+                        isOpen ? "text-white" : "text-brand-500"
+                      )}
+                      strokeWidth={1.5}
+                    />
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3">
                       <span
                         className={cn(
-                          "font-display text-xl leading-tight transition-colors duration-200",
+                          "font-display text-lg leading-tight transition-colors duration-200",
                           isOpen ? "text-brand-900" : "text-brand-700 group-hover:text-brand-900"
                         )}
                       >
                         {item.role}
                       </span>
-                      <span className="flex items-center gap-1.5 text-sm text-brand-500">
-                        <span>{item.company}</span>
-                        <span className="text-brand-300">·</span>
-                        <MapPin className="w-3 h-3" strokeWidth={1.5} />
-                        <span>{item.location}</span>
-                      </span>
+                      <span className="hidden sm:block text-brand-300 text-xs">·</span>
+                      <span className="text-sm text-brand-500">{item.company}</span>
                     </div>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      <span className="text-xs text-brand-400 uppercase tracking-wide">{item.period}</span>
+                      <span className="text-brand-300 text-xs">·</span>
+                      <MapPin className="w-3 h-3 text-brand-400" strokeWidth={1.5} />
+                      <span className="text-xs text-brand-400">{item.location}</span>
+                    </div>
+                  </div>
 
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="shrink-0 mt-1"
-                    >
-                      <ChevronDown
-                        className={cn(
-                          "w-4 h-4 transition-colors duration-200",
-                          isOpen ? "text-brand-700" : "text-brand-300 group-hover:text-brand-500"
-                        )}
-                        strokeWidth={1.5}
-                      />
-                    </motion.div>
+                  {/* Toggle icon */}
+                  <div
+                    className={cn(
+                      "shrink-0 w-7 h-7 rounded-sm border flex items-center justify-center transition-colors duration-300",
+                      isOpen
+                        ? "border-brand-300 bg-brand-50"
+                        : "border-brand-200 bg-white group-hover:border-brand-300"
+                    )}
+                  >
+                    <AnimatePresence mode="wait" initial={false}>
+                      {isOpen ? (
+                        <motion.div
+                          key="minus"
+                          initial={{ rotate: -90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Minus className="w-3 h-3 text-brand-700" strokeWidth={2} />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="plus"
+                          initial={{ rotate: 90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: -90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Plus className="w-3 h-3 text-brand-500" strokeWidth={2} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </button>
 
+                {/* Expandable body */}
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-6 pt-1">
-                        <p className="text-sm text-brand-700 mb-4 leading-relaxed">
+                      <div className="px-5 pb-5 border-t border-brand-100">
+                        <p className="text-sm text-brand-700 leading-relaxed mt-4 mb-4">
                           {item.summary}
                         </p>
-                        <ul className="flex flex-col gap-2">
+                        <ul className="flex flex-col gap-2.5">
                           {item.bullets.map((bullet, i) => (
                             <motion.li
                               key={i}
-                              initial={{ opacity: 0, x: -8 }}
+                              initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: i * 0.06, duration: 0.25 }}
-                              className="flex items-start gap-2.5 text-sm text-brand-700"
+                              transition={{ delay: 0.1 + i * 0.07, duration: 0.25, ease: "easeOut" }}
+                              className="flex items-start gap-3 text-sm text-brand-700"
                             >
-                              <span className="text-brand-400 shrink-0 mt-0.5 text-xs">▸</span>
+                              <span className="shrink-0 w-1 h-1 rounded-full bg-brand-400 mt-2" />
                               {bullet}
                             </motion.li>
                           ))}
@@ -146,10 +157,6 @@ export function TimelineSection() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                {index < TIMELINE.length - 1 && (
-                  <div className="h-px bg-brand-100 mb-2" />
-                )}
               </div>
             </motion.div>
           );
