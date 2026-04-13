@@ -65,8 +65,11 @@ function TimelineCard({
               <span className="text-brand-300 text-xs hidden sm:inline">·</span>
               <span className="text-sm text-brand-500">{item.company}</span>
               {isCurrent && (
-                <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-brand-700 bg-brand-100 px-2 py-0.5 rounded-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-700 animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-blue-600 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-sm">
+                  <span className="relative flex items-center justify-center w-2 h-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-60" />
+                    <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-blue-500" />
+                  </span>
                   Actual
                 </span>
               )}
