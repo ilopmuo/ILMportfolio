@@ -16,7 +16,7 @@ export function AboutSection() {
                 src="/FotoNacho.png"
                 alt="Ignacio López Muñoyerro"
                 fill
-                className="object-cover object-top grayscale"
+                className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 340px"
                 priority
               />
