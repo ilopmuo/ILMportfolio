@@ -49,7 +49,7 @@ export function Header() {
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 h-16 flex items-center justify-between">
         {/* Logo — full name */}
-        <Link href="/" className="group flex items-baseline gap-0 overflow-hidden">
+        <Link href="/" className="group flex items-baseline gap-0">
           <motion.span
             className="font-display text-brand-900 font-semibold tracking-tight text-base leading-none"
             initial={{ opacity: 0, x: -12 }}
