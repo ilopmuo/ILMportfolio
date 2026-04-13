@@ -62,8 +62,8 @@ export function AboutSection() {
                 gestionando proyectos de implementación y mantenimiento de Salesforce para freightforwarders.
               </p>
               <p>
-                Tres certificaciones activas de Salesforce e <strong className="text-brand-900 font-semibold">inglés B2</strong> —
-                trabajo en inglés a diario con clientes y equipos internacionales.
+                Tres certificaciones activas de Salesforce e <strong className="text-brand-900 font-semibold">inglés B2 Cambridge</strong>.
+                Trabajo en inglés a diario con clientes y equipos internacionales.
               </p>
             </div>
 
