@@ -98,18 +98,21 @@ export const COMPETENCY_AREAS = [
 export const CERTIFICATIONS = [
   {
     name: "Salesforce Certified Platform App Builder",
+    certKey: "Platform App Builder",
     issuer: "Salesforce",
     date: "Julio 2025",
     credentialId: "6329135",
   },
   {
     name: "Salesforce Certified Administrator",
+    certKey: "Administrator",
     issuer: "Salesforce",
     date: "Abril 2025",
     credentialId: "6088493",
   },
   {
     name: "Salesforce Certified AI Associate",
+    certKey: "AI Associate",
     issuer: "Salesforce",
     date: "Noviembre 2024",
     credentialId: "5344662",

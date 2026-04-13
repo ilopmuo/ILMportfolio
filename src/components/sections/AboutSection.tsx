@@ -2,7 +2,7 @@ import Image from "next/image";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { STATS, CERTIFICATIONS } from "@/lib/constants";
-import { Award } from "lucide-react";
+import { SalesforceBadge } from "@/components/shared/SalesforceBadge";
 
 export function AboutSection() {
   return (
@@ -28,8 +28,8 @@ export function AboutSection() {
                 Certificaciones
               </p>
               {CERTIFICATIONS.map((cert) => (
-                <div key={cert.credentialId} className="flex items-start gap-3">
-                  <Award className="w-4 h-4 text-brand-500 mt-0.5 shrink-0" strokeWidth={1.5} />
+                <div key={cert.credentialId} className="flex items-center gap-3">
+                  <SalesforceBadge certKey={cert.certKey} name={cert.name} />
                   <div>
                     <p className="text-sm text-brand-900">{cert.name}</p>
                     <p className="text-xs text-brand-500">{cert.issuer} · {cert.date}</p>
