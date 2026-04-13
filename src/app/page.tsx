@@ -18,8 +18,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TimelineSection />
-      <PhilosophySection />
       <ProjectsSection projects={projects} />
+      <PhilosophySection />
       <SkillsSection />
       <PostsSection posts={featuredPosts} />
       <ContactSection />
