@@ -9,10 +9,9 @@ export const SITE_CONFIG = {
   url: "https://www.xn--ignaciolopezmuoyerro-h7b.com",
   location: "Sevilla, España",
   email: "Ignacio.odi4@gmail.com",
-  phone: "+34 665 918 520",
   social: {
-    linkedin: "https://linkedin.com/in/ignaciolopez",
-    github: "https://github.com/ignaciolopez",
+    linkedin: "https://www.linkedin.com/in/ignacio-l%C3%B3pez-mu%C3%B1oyerro-402ab5186/",
+    github: "https://github.com/ilopmuo",
   },
 };
 

@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { ContactForm } from "@/components/shared/ContactForm";
 import { SITE_CONFIG } from "@/lib/constants";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export function ContactSection() {
   return (
@@ -34,10 +34,6 @@ export function ContactSection() {
                 <Mail className="w-4 h-4 text-brand-500" strokeWidth={1.5} />
                 {SITE_CONFIG.email}
               </a>
-              <div className="flex items-center gap-3 text-sm text-brand-700">
-                <Phone className="w-4 h-4 text-brand-500" strokeWidth={1.5} />
-                {SITE_CONFIG.phone}
-              </div>
               <div className="flex items-center gap-3 text-sm text-brand-700">
                 <MapPin className="w-4 h-4 text-brand-500" strokeWidth={1.5} />
                 {SITE_CONFIG.location}
