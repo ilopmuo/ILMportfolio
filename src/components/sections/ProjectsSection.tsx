@@ -32,10 +32,10 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <div>
             <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-              Proyectos
+              Proyectos personales
             </p>
             <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-              Trabajo que tiene impacto.
+              Lo que construyo fuera del trabajo.
             </h2>
           </div>
         </div>
