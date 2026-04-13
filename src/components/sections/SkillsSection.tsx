@@ -134,7 +134,7 @@ export function SkillsSection() {
 
         {/* Proyectos propios */}
         <Card delay={0.32} className="col-span-2 lg:col-span-3 border border-brand-100 rounded-sm p-6 flex flex-col justify-between gap-5 bg-white">
-          <p className="text-xs text-brand-400 uppercase tracking-widest">Proyectos propios</p>
+          <p className="text-xs text-brand-400 uppercase tracking-widest">Proyectos y soluciones fuera del trabajo</p>
           <div className="flex flex-col gap-2">
             {[
               { name: "OppsHub — Gestión de proyectos", href: "https://opps-hub.vercel.app/" },
