@@ -166,22 +166,22 @@ export const TIMELINE = [
 export const PHILOSOPHY_PRINCIPLES = [
   {
     numeral: "I",
-    title: "Problemas antes que herramientas",
-    body: "Antes de hablar de tecnología, entiendo qué decisión de negocio debe mejorar la solución. El stack viene después de la estrategia.",
+    title: "Primero el problema.",
+    body: "El stack lo decido al final. Primero entiendo qué tiene que mejorar y para quién.",
   },
   {
     numeral: "II",
-    title: "Soluciones que escalan, no parches que aguantan",
-    body: "Diseño pensando en el estado futuro del sistema, no solo en el requisito inmediato. Una solución bien arquitectada ahorra meses de deuda técnica.",
+    title: "Diseño para dentro de un año.",
+    body: "Un parche rápido hoy es deuda técnica mañana. Prefiero hacerlo bien a la primera.",
   },
   {
     numeral: "III",
-    title: "La claridad es una ventaja competitiva",
-    body: "Documentar bien, comunicar con precisión y hacer demos pedagógicas no es burocracia — es lo que separa los proyectos que se despliegan de los que mueren en backlog.",
+    title: "Documentar no es burocracia.",
+    body: "Un buen Solution Design evita el 80% de los malentendidos. Lo escribo antes del sprint, no después.",
   },
   {
     numeral: "IV",
-    title: "El cliente conoce el problema, yo diseño la solución",
-    body: "Mi rol en un workshop no es transcribir requisitos, es traducirlos. Escucho con atención técnica y respondo con propuestas funcionales, no con preguntas de vuelta.",
+    title: "El cliente explica, yo propongo.",
+    body: "En un workshop no tomo nota, construyo una solución. Salgo con una propuesta, no con más preguntas.",
   },
 ];
