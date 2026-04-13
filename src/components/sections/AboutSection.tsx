@@ -55,11 +55,11 @@ export function AboutSection() {
             <div className="flex flex-col gap-4 text-brand-700 text-base leading-relaxed">
               <p>
                 Trabajo con <strong className="text-brand-900 font-semibold">Salesforce</strong> desde el lado funcional, técnico y de gestión de proyectos.
-                Entiendo al cliente, diseño la solución y escribo el código.
+                Entiendo al cliente, diseño la solución y puedo desarrollar código.
               </p>
               <p>
                 Actualmente en <strong className="text-brand-900 font-semibold">Neurored</strong> como Customer Success Manager,
-                gestionando proyectos de implementación y mantenimiento de Salesforce para freightforwarders.
+                gestiono proyectos de implementación y mantenimiento de Salesforce para freightforwarders.
               </p>
               <p>
                 Tres certificaciones activas de Salesforce e <strong className="text-brand-900 font-semibold">inglés B2 Cambridge</strong>.
