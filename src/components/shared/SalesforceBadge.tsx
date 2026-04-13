@@ -1,10 +1,20 @@
+import Image from "next/image";
+
 export function SalesforceBadge({ name }: { certKey?: string; name: string }) {
   return (
     <div
-      className="shrink-0 w-10 h-10 flex items-center justify-center bg-[#00A1E0]/8 border border-[#00A1E0]/20 rounded-sm"
+      className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 overflow-hidden bg-white flex items-center justify-center"
       title={name}
     >
-      <SalesforceCloudIcon className="w-6 h-[18px]" />
+      <div className="relative w-full h-full">
+        <Image
+          src="/salesforce_logo.jpg"
+          alt="Salesforce"
+          fill
+          className="object-contain p-1"
+          sizes="40px"
+        />
+      </div>
     </div>
   );
 }

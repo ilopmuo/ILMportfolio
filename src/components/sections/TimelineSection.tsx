@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import Image from "next/image";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { TIMELINE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { MapPin, Plus, Minus, Briefcase, GraduationCap } from "lucide-react";
+import { MapPin, Plus, Minus } from "lucide-react";
 
 export function TimelineSection() {
   const [openIndex, setOpenIndex] = useState<number>(0);
@@ -27,7 +28,6 @@ export function TimelineSection() {
       <div className="flex flex-col gap-3">
         {TIMELINE.map((item, index) => {
           const isOpen = openIndex === index;
-          const Icon = item.type === "education" ? GraduationCap : Briefcase;
 
           return (
             <motion.div
@@ -40,37 +40,30 @@ export function TimelineSection() {
               <div
                 className={cn(
                   "rounded-sm border transition-colors duration-300 overflow-hidden",
-                  isOpen
-                    ? "border-brand-300 bg-white"
-                    : "border-brand-100 bg-white hover:border-brand-200"
+                  isOpen ? "border-brand-300" : "border-brand-100 hover:border-brand-200"
                 )}
               >
-                {/* Header — always visible */}
+                {/* Header */}
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className="w-full text-left px-5 py-5 flex items-center gap-4 group"
+                  className="w-full text-left px-5 py-4 flex items-center gap-4 group"
                 >
-                  {/* Icon */}
-                  <div
-                    className={cn(
-                      "shrink-0 w-9 h-9 rounded-sm flex items-center justify-center transition-colors duration-300",
-                      isOpen
-                        ? "bg-brand-900"
-                        : "bg-brand-50 group-hover:bg-brand-100"
-                    )}
-                  >
-                    <Icon
-                      className={cn(
-                        "w-4 h-4 transition-colors duration-300",
-                        isOpen ? "text-white" : "text-brand-500"
-                      )}
-                      strokeWidth={1.5}
-                    />
+                  {/* Logo */}
+                  <div className="shrink-0 w-10 h-10 rounded-sm border border-brand-100 overflow-hidden bg-white flex items-center justify-center">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={item.logo}
+                        alt={item.company}
+                        fill
+                        className="object-contain p-1"
+                        sizes="40px"
+                      />
+                    </div>
                   </div>
 
                   {/* Text */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2.5">
                       <span
                         className={cn(
                           "font-display text-lg leading-tight transition-colors duration-200",
@@ -82,21 +75,19 @@ export function TimelineSection() {
                       <span className="hidden sm:block text-brand-300 text-xs">·</span>
                       <span className="text-sm text-brand-500">{item.company}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 mt-1">
+                    <div className="flex items-center gap-1.5 mt-0.5">
                       <span className="text-xs text-brand-400 uppercase tracking-wide">{item.period}</span>
                       <span className="text-brand-300 text-xs">·</span>
-                      <MapPin className="w-3 h-3 text-brand-400" strokeWidth={1.5} />
+                      <MapPin className="w-3 h-3 text-brand-400 shrink-0" strokeWidth={1.5} />
                       <span className="text-xs text-brand-400">{item.location}</span>
                     </div>
                   </div>
 
-                  {/* Toggle icon */}
+                  {/* Toggle */}
                   <div
                     className={cn(
                       "shrink-0 w-7 h-7 rounded-sm border flex items-center justify-center transition-colors duration-300",
-                      isOpen
-                        ? "border-brand-300 bg-brand-50"
-                        : "border-brand-200 bg-white group-hover:border-brand-300"
+                      isOpen ? "border-brand-300 bg-brand-50" : "border-brand-200 group-hover:border-brand-300"
                     )}
                   >
                     <AnimatePresence mode="wait" initial={false}>
@@ -106,7 +97,7 @@ export function TimelineSection() {
                           initial={{ rotate: -90, opacity: 0 }}
                           animate={{ rotate: 0, opacity: 1 }}
                           exit={{ rotate: 90, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
+                          transition={{ duration: 0.18 }}
                         >
                           <Minus className="w-3 h-3 text-brand-700" strokeWidth={2} />
                         </motion.div>
@@ -116,7 +107,7 @@ export function TimelineSection() {
                           initial={{ rotate: 90, opacity: 0 }}
                           animate={{ rotate: 0, opacity: 1 }}
                           exit={{ rotate: -90, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
+                          transition={{ duration: 0.18 }}
                         >
                           <Plus className="w-3 h-3 text-brand-500" strokeWidth={2} />
                         </motion.div>
@@ -135,17 +126,17 @@ export function TimelineSection() {
                       transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-5 border-t border-brand-100">
-                        <p className="text-sm text-brand-700 leading-relaxed mt-4 mb-4">
+                      <div className="px-5 pb-5 pt-4 border-t border-brand-100">
+                        <p className="text-sm text-brand-700 leading-relaxed mb-4">
                           {item.summary}
                         </p>
                         <ul className="flex flex-col gap-2.5">
                           {item.bullets.map((bullet, i) => (
                             <motion.li
                               key={i}
-                              initial={{ opacity: 0, x: -10 }}
+                              initial={{ opacity: 0, x: -8 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.1 + i * 0.07, duration: 0.25, ease: "easeOut" }}
+                              transition={{ delay: 0.08 + i * 0.07, duration: 0.25, ease: "easeOut" }}
                               className="flex items-start gap-3 text-sm text-brand-700"
                             >
                               <span className="shrink-0 w-1 h-1 rounded-full bg-brand-400 mt-2" />
