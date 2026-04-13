@@ -341,7 +341,7 @@ export const translations = {
           bullets: [
             "End-to-end project management: from requirements analysis to go-live",
             "Functional solution design: data architecture, business flows and permissions",
-            "Direct liaison with international clients: workshops, validations and follow-up",
+            "Direct communication with international clients: workshops, validations and follow-up",
             "Coordination between business, product and development to align deliveries and priorities",
             "Technical and functional documentation: Solution Designs, user stories and acceptance criteria",
           ],
