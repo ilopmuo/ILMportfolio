@@ -6,18 +6,18 @@ import { ArrowDown } from "lucide-react";
 const ROLES = [
   {
     tag: "Customer Success",
-    headline: "Entiendo lo que el cliente necesita",
-    body: "Lidero workshops, traduzco requisitos complejos y gestiono la relación desde el primer día hasta el go-live.",
+    headline: "Entiendo al cliente.",
+    body: "Workshops, requisitos y relación. Sin burocracia.",
   },
   {
     tag: "Project Lead",
-    headline: "Organizo equipos y entrego",
-    body: "Coordino con producto, desarrollo y QA. Priorizo con criterio de negocio, no solo con urgencia.",
+    headline: "Coordino y entrego.",
+    body: "Del diseño funcional al go-live, sin perder el hilo.",
   },
   {
     tag: "Developer",
-    headline: "Y también construyo",
-    body: "Cuando hace falta, escribo el código. Apex, LWC, APIs, automatizaciones — sin depender de nadie.",
+    headline: "Y escribo el código.",
+    body: "Apex, LWC y APIs cuando hace falta.",
   },
 ];
 
@@ -73,8 +73,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               >
-                Que entiende el negocio, lidera el proyecto
-                y sabe construir la solución.
+                Del requisito al despliegue.
               </motion.p>
             </div>
 
