@@ -16,14 +16,12 @@ export function ContactSection() {
                 Contacto
               </p>
               <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
-                Construyamos algo que tenga impacto.
+                Hablamos.
               </h2>
             </div>
 
             <p className="text-brand-700 text-base leading-relaxed">
-              Estoy disponible para consultas de proyectos Salesforce, colaboraciones
-              técnicas y oportunidades de advisory. Si tienes un reto que resolver,
-              hablamos.
+              Si tienes un proyecto Salesforce, una oportunidad o simplemente quieres hacer una consulta, escríbeme.
             </p>
 
             <div className="flex flex-col gap-4 pt-2">
