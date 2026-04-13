@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
   // Header
   header: { marginBottom: 18, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
   headerLeft: { flex: 1 },
-  photo: { width: 72, height: 72, borderRadius: 4, marginLeft: 16, objectFit: "cover" },
+  photo: { width: 64, height: 80, borderRadius: 3, marginLeft: 16, objectFit: "contain" },
   name: {
     fontSize: 22,
     fontFamily: "Helvetica-Bold",
     color: COLORS.black,
     letterSpacing: -0.5,
-    marginBottom: 6,
+    marginBottom: 12,
   },
   title: { fontSize: 10, color: COLORS.mid, marginBottom: 10 },
   contactRow: { flexDirection: "row", flexWrap: "wrap", gap: 10 },
