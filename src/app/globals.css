@@ -3,11 +3,11 @@
 
 @theme inline {
   /* Brand color palette */
-  --color-brand-900: #535359;
-  --color-brand-700: #75757a;
-  --color-brand-500: #98989b;
+  --color-brand-900: #2e2e32;
+  --color-brand-700: #535359;
+  --color-brand-500: #75757a;
   --color-brand-300: #bababd;
-  --color-brand-100: #ddddde;
+  --color-brand-100: #e8e8e9;
   --color-brand-50: #f4f4f5;
 
   /* Fonts */
@@ -17,7 +17,7 @@
 
   /* Semantic colors */
   --color-background: #ffffff;
-  --color-foreground: #535359;
+  --color-foreground: #2e2e32;
 }
 
 * {
@@ -38,22 +38,22 @@ body {
 
 /* Typography prose override for MDX content */
 .prose {
-  --tw-prose-body: #75757a;
-  --tw-prose-headings: #535359;
-  --tw-prose-lead: #75757a;
-  --tw-prose-links: #535359;
-  --tw-prose-bold: #535359;
-  --tw-prose-counters: #98989b;
+  --tw-prose-body: #535359;
+  --tw-prose-headings: #2e2e32;
+  --tw-prose-lead: #535359;
+  --tw-prose-links: #2e2e32;
+  --tw-prose-bold: #2e2e32;
+  --tw-prose-counters: #75757a;
   --tw-prose-bullets: #bababd;
-  --tw-prose-hr: #ddddde;
-  --tw-prose-quotes: #535359;
+  --tw-prose-hr: #e8e8e9;
+  --tw-prose-quotes: #2e2e32;
   --tw-prose-quote-borders: #bababd;
-  --tw-prose-captions: #98989b;
-  --tw-prose-code: #535359;
-  --tw-prose-pre-code: #535359;
+  --tw-prose-captions: #75757a;
+  --tw-prose-code: #2e2e32;
+  --tw-prose-pre-code: #2e2e32;
   --tw-prose-pre-bg: #f4f4f5;
   --tw-prose-th-borders: #bababd;
-  --tw-prose-td-borders: #ddddde;
+  --tw-prose-td-borders: #e8e8e9;
 }
 
 /* Reading progress bar */

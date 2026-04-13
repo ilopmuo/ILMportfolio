@@ -13,7 +13,7 @@ export function AboutSection() {
           <div className="flex flex-col gap-8">
             <div className="relative w-full max-w-[340px] aspect-[4/5] border border-brand-300 overflow-hidden rounded-sm">
               <Image
-                src="/FotoNacho.jpg"
+                src="/FotoNacho.png"
                 alt="Ignacio López Muñoyerro"
                 fill
                 className="object-cover object-top grayscale"
