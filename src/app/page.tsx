@@ -21,7 +21,6 @@ export default function Home() {
       <TimelineSection />
       <ProjectsSection projects={projects} />
       <PhilosophySection />
-      <SkillsSection />
       <PostsSection posts={featuredPosts} />
       <ContactSection />
     </>
