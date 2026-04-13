@@ -13,6 +13,7 @@ export interface ProjectFrontmatter {
   featured: boolean;
   order: number;
   coverImage?: string;
+  previewVideo?: string;
   liveUrl?: string;
   caseStudyAvailable: boolean;
 }
