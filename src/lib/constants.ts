@@ -216,8 +216,8 @@ export const PHILOSOPHY_PRINCIPLES = [
   },
   {
     numeral: "III",
-    title: "Entrego lo que prometí.",
-    body: "Si hay un bloqueo, aviso antes. Sin sorpresas de última hora.",
+    title: "Sin planificación no hay entrega.",
+    body: "Comprometerse con una fecha sin analizar el alcance es la forma más segura de incumplirla.",
   },
   {
     numeral: "IV",

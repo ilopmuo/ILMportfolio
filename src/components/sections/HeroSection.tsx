@@ -17,7 +17,7 @@ const ROLES = [
   },
   {
     tag: "Desarrollo",
-    headline: "Y también desarrollo.",
+    headline: "Desarrollo.",
     body: "Apex, LWC y APIs.",
   },
 ];
