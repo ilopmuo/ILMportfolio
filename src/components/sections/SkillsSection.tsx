@@ -7,7 +7,7 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 
 const SF_SKILLS = ["Sales Cloud", "Service Cloud", "Flows", "Apex", "LWC", "Permission Sets", "APIs REST/SOAP", "Salesforce DX"];
-const CSM_SKILLS = ["Workshops", "Solution Design", "Requirements gathering", "User Stories", "Onboarding", "Gestión de stakeholders", "Roadmapping"];
+const CSM_SKILLS = ["Gestión de proyectos", "Planificación y estimación", "Control de presupuesto", "Gestión de riesgos", "Seguimiento de hitos", "Coordinación de equipos", "Solution Design", "Requirements gathering", "Workshops"];
 const DEV_SKILLS = ["React", "Next.js", "TypeScript", "Supabase", "Electron", "Node.js", "Tailwind"];
 
 function Card({
