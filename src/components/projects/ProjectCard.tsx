@@ -1,5 +1,8 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Play, Pause } from "lucide-react";
 import { TagBadge } from "@/components/shared/TagBadge";
 import type { Project } from "@/types/project";
 import { cn } from "@/lib/utils";
@@ -15,12 +18,26 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(true);
+
+  function togglePlay() {
+    if (!videoRef.current) return;
+    if (playing) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setPlaying(!playing);
+  }
+
   return (
     <div className="group flex flex-col bg-white border border-brand-100 rounded-sm hover:border-brand-300 transition-colors h-full overflow-hidden">
       {/* Video preview */}
       {project.previewVideo && (
         <div className="relative w-full aspect-video overflow-hidden bg-brand-100">
           <video
+            ref={videoRef}
             src={project.previewVideo}
             autoPlay
             muted
@@ -28,6 +45,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
             playsInline
             className="w-full h-full object-cover"
           />
+          {/* Play/Pause overlay */}
+          <button
+            onClick={togglePlay}
+            className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-sm flex items-center justify-center transition-colors"
+            aria-label={playing ? "Pausar" : "Reproducir"}
+          >
+            {playing ? (
+              <Pause className="w-3.5 h-3.5 text-white" strokeWidth={2} />
+            ) : (
+              <Play className="w-3.5 h-3.5 text-white fill-white" strokeWidth={2} />
+            )}
+          </button>
         </div>
       )}
 

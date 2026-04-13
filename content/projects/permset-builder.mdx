@@ -1,0 +1,47 @@
+---
+title: "PermSet Builder"
+description: "Aplicación de escritorio para convertir perfiles de Salesforce a Permission Sets. Interfaz visual con drag & drop, tres modos de conversión y CLI integrada."
+role: "Creador & Desarrollador"
+organization: "Proyecto personal"
+period: "2025"
+status: "completed"
+tags: ["Electron", "Salesforce", "React", "Node.js", "CLI"]
+outcomes:
+  - "Conversión automática de .profile-meta.xml a .permissionset-meta.xml con XML 100% compatible con Salesforce DX"
+  - "Tres modos de generación: Single, Split y Unified para distintos patrones de migración"
+  - "Interfaz de escritorio multiplataforma con drag & drop, progreso en tiempo real y vista previa del XML generado"
+techStack: ["Electron", "React 18", "Tailwind CSS", "Node.js", "fast-xml-parser", "Commander"]
+featured: true
+order: 3
+caseStudyAvailable: true
+---
+
+## El problema
+
+Migrar de perfiles a Permission Sets es una de las tareas más tediosas en Salesforce: los perfiles acumulan permisos mezclados durante años y convertirlos a mano es lento y propenso a errores. No había ninguna herramienta visual que lo hiciera bien.
+
+## Qué hace
+
+PermSet Builder automatiza la conversión completa. Toma los archivos `.profile-meta.xml` de un proyecto Salesforce DX y genera Permission Sets válidos listos para desplegar.
+
+**Tres modos de conversión:**
+
+- **Single** — un Permission Set por perfil
+- **Split** — un Permission Set por tipo de permiso (objetos, campos, user permissions...)
+- **Unified** — todos los perfiles combinados en un único Permission Set, eliminando duplicados
+
+**Permisos que extrae:** objectPermissions, fieldPermissions, userPermissions, classAccesses, applicationVisibilities, tabVisibilities, pageAccesses, recordTypeVisibilities.
+
+## La herramienta
+
+Aplicación de escritorio con Electron — no hace falta instalar nada en el proyecto Salesforce. Interfaz en cuatro pasos: configuración, selección de carpetas, procesamiento con progreso en tiempo real y resultados con vista previa del XML antes de guardarlo.
+
+También tiene CLI standalone para integrarlo en pipelines CI/CD:
+
+```bash
+node index.js -i ./profiles -o ./permsets -m split
+```
+
+## Stack
+
+Electron 27 como shell de escritorio, React 18 para la UI, Tailwind para los estilos. La lógica de conversión XML es Node.js puro con `fast-xml-parser` y `xmlbuilder2`. Compatible con Windows, macOS y Linux.
