@@ -176,12 +176,12 @@ export const PHILOSOPHY_PRINCIPLES = [
   },
   {
     numeral: "III",
-    title: "La solución tiene que funcionar en producción.",
-    body: "Una demo perfecta que falla en real no vale nada.",
+    title: "Entrego lo que prometí.",
+    body: "Si hay un bloqueo, aviso antes. Sin sorpresas de última hora.",
   },
   {
     numeral: "IV",
-    title: "Del workshop salgo con una propuesta.",
-    body: "El cliente explica su problema, yo vuelvo con una solución.",
+    title: "No todo lo urgente es importante.",
+    body: "Priorizo por impacto. Saber decir que no a tiempo es parte del trabajo.",
   },
 ];
