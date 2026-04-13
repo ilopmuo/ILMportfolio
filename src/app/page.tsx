@@ -17,6 +17,7 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
+      <SkillsSection />
       <TimelineSection />
       <ProjectsSection projects={projects} />
       <PhilosophySection />
