@@ -1,63 +1,14 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { COMPETENCY_AREAS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const RADIUS = 36;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-
-function ArcProgress({ depth, active }: { depth: number; active: boolean }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const offset = CIRCUMFERENCE * (1 - depth / 100);
-
-  return (
-    <div ref={ref} className="relative w-24 h-24 shrink-0">
-      <svg className="w-full h-full -rotate-90" viewBox="0 0 88 88">
-        {/* Track */}
-        <circle
-          cx="44" cy="44" r={RADIUS}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          className="text-brand-100"
-        />
-        {/* Arc */}
-        <motion.circle
-          cx="44" cy="44" r={RADIUS}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-          className="text-brand-900"
-          strokeDasharray={CIRCUMFERENCE}
-          initial={{ strokeDashoffset: CIRCUMFERENCE }}
-          animate={inView && active ? { strokeDashoffset: offset } : { strokeDashoffset: CIRCUMFERENCE }}
-          transition={{ duration: 1.1, ease: "easeOut" }}
-        />
-      </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <motion.span
-          className="font-display text-xl text-brand-900 leading-none"
-          initial={{ opacity: 0 }}
-          animate={inView && active ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-        >
-          {depth}
-        </motion.span>
-        <span className="text-[10px] text-brand-400">/ 100</span>
-      </div>
-    </div>
-  );
-}
-
 export function SkillsSection() {
   const [active, setActive] = useState(0);
-
   const area = COMPETENCY_AREAS[active];
 
   return (
@@ -68,7 +19,7 @@ export function SkillsSection() {
             Competencias
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight max-w-2xl">
-            En qué soy bueno.
+            Qué puedo aportar.
           </h2>
         </div>
       </AnimatedSection>
@@ -85,12 +36,7 @@ export function SkillsSection() {
                 active === i ? "bg-brand-900" : "bg-white hover:bg-brand-50"
               )}
             >
-              <span
-                className={cn(
-                  "font-display text-xs tabular-nums transition-colors duration-200",
-                  active === i ? "text-brand-300" : "text-brand-300"
-                )}
-              >
+              <span className="font-display text-xs tabular-nums text-brand-300 shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span
@@ -102,10 +48,7 @@ export function SkillsSection() {
                 {item.title}
               </span>
               {active === i && (
-                <motion.span
-                  layoutId="arrow"
-                  className="ml-auto text-brand-300 text-xs"
-                >
+                <motion.span layoutId="arrow" className="ml-auto text-brand-400 text-xs">
                   →
                 </motion.span>
               )}
@@ -114,10 +57,10 @@ export function SkillsSection() {
         </div>
 
         {/* Right — detail panel */}
-        <div className="lg:col-span-3 relative overflow-hidden bg-white min-h-[320px]">
+        <div className="lg:col-span-3 relative overflow-hidden bg-white min-h-[340px]">
           {/* Large background number */}
           <span
-            className="absolute right-4 top-2 font-display text-[8rem] leading-none text-brand-100 select-none pointer-events-none"
+            className="absolute right-4 top-0 font-display text-[8rem] leading-none text-brand-100 select-none pointer-events-none"
             aria-hidden="true"
           >
             {String(active + 1).padStart(2, "0")}
@@ -129,31 +72,49 @@ export function SkillsSection() {
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -16 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative z-10 p-8 flex flex-col gap-6 h-full"
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative z-10 p-8 flex flex-col gap-6"
             >
-              {/* Title + arc */}
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-brand-900 text-2xl leading-tight max-w-xs">
+              {/* Title + description */}
+              <div>
+                <h3 className="font-display text-brand-900 text-2xl leading-tight mb-2">
                   {area.title}
                 </h3>
-                <ArcProgress depth={area.depth} active={true} />
+                <p className="text-sm text-brand-500 leading-relaxed">
+                  {area.description}
+                </p>
               </div>
 
-              {/* Description */}
-              <p className="text-sm text-brand-700 leading-relaxed max-w-md">
-                {area.description}
-              </p>
+              {/* Delivers */}
+              <div className="flex flex-col gap-3">
+                <p className="text-[10px] text-brand-400 uppercase tracking-widest">
+                  Lo que aporto
+                </p>
+                <ul className="flex flex-col gap-2.5">
+                  {area.delivers.map((item, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.08 + i * 0.07, duration: 0.25, ease: "easeOut" }}
+                      className="flex items-start gap-3 text-sm text-brand-700"
+                    >
+                      <span className="shrink-0 w-1 h-1 rounded-full bg-brand-400 mt-2" />
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
 
               {/* Skills */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 pt-1">
                 {area.skills.map((skill, i) => (
                   <motion.span
                     key={skill}
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 + i * 0.06, duration: 0.25, ease: "easeOut" }}
-                    className="text-xs px-3 py-1.5 border border-brand-200 text-brand-700 rounded-sm bg-brand-50"
+                    transition={{ delay: 0.3 + i * 0.05, duration: 0.2 }}
+                    className="text-xs px-2.5 py-1 border border-brand-200 text-brand-500 rounded-sm bg-brand-50"
                   >
                     {skill}
                   </motion.span>

@@ -29,37 +29,62 @@ export const COMPETENCY_AREAS = [
   {
     title: "Salesforce Platform",
     description:
-      "Implementación y arquitectura en Sales Cloud y Service Cloud. Data model, automatizaciones complejas con Flows, seguridad por perfiles y permisos, e integraciones con sistemas externos.",
+      "Implementación y arquitectura en Sales Cloud y Service Cloud para clientes empresariales.",
     skills: ["Sales Cloud", "Service Cloud", "Flows avanzados", "Apex", "LWC", "Permission Sets", "APIs REST/SOAP"],
-    depth: 90,
+    delivers: [
+      "Arquitectura funcional desde cero: data model, flujos operativos y matriz de permisos",
+      "Automatizaciones que eliminan trabajo manual sin añadir deuda técnica",
+      "Integraciones con sistemas externos estables y documentadas",
+      "Configuración de seguridad que escala con el crecimiento del equipo",
+    ],
   },
   {
     title: "Customer Success",
     description:
-      "Gestión directa de clientes internacionales desde el análisis de requisitos hasta el go-live. Workshops, validaciones funcionales y seguimiento continuo del proyecto.",
+      "Gestión directa de clientes internacionales desde los requisitos hasta el go-live.",
     skills: ["Workshops", "Solution Design", "Requirements gathering", "Onboarding", "Gestión de stakeholders"],
-    depth: 88,
+    delivers: [
+      "Traducción de requisitos de negocio a soluciones técnicas viables",
+      "Workshops estructurados que acortan los ciclos de validación",
+      "Onboarding que reduce el tiempo de adopción del cliente",
+      "Interlocución fluida con clientes internacionales en inglés",
+    ],
   },
   {
     title: "Gestión de Proyectos",
     description:
-      "Coordinación entre negocio, producto y desarrollo. Priorización de roadmap, documentación técnica y funcional, y alineación de entregas con expectativas del cliente.",
+      "Coordinación entre negocio, producto y desarrollo con foco en entregas predecibles.",
     skills: ["Roadmapping", "User Stories", "Acceptance Criteria", "Coordinación de equipos", "Solution Designs"],
-    depth: 85,
+    delivers: [
+      "Planificación realista antes de comprometer fechas",
+      "Documentación que evita malentendidos entre negocio y desarrollo",
+      "Priorización por impacto, no por urgencia percibida",
+      "Coordinación que mantiene alineados a todos los implicados",
+    ],
   },
   {
     title: "Desarrollo",
     description:
-      "Construcción técnica de componentes Salesforce e integraciones con sistemas externos. También desarrollo full-stack de productos propios con React, Next.js y Supabase.",
+      "Construcción técnica de componentes Salesforce, integraciones y productos propios.",
     skills: ["Apex", "LWC", "REST APIs", "CI/CD", "React", "Next.js", "Supabase", "Electron"],
-    depth: 80,
+    delivers: [
+      "Componentes LWC y Apex listos para producción",
+      "Integraciones con APIs externas robustas y con manejo de errores",
+      "Productos web completos de principio a fin",
+      "Herramientas internas que resuelven problemas reales",
+    ],
   },
   {
     title: "Comunicación técnica",
     description:
-      "Documentación funcional y técnica clara para equipos y clientes. Trabajo en inglés a diario con freightforwarders internacionales y equipos distribuidos.",
+      "Documentación clara para equipos y clientes en español e inglés.",
     skills: ["Technical Writing", "Presentaciones ejecutivas", "Inglés B2 Cambridge", "Documentación funcional"],
-    depth: 88,
+    delivers: [
+      "Solution Designs que el equipo de desarrollo puede implementar sin preguntas",
+      "User stories con criterios de aceptación claros y testeables",
+      "Comunicación técnica en inglés con clientes y equipos internacionales",
+      "Presentaciones ejecutivas que van al grano",
+    ],
   },
 ];
 
