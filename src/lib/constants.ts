@@ -21,6 +21,7 @@ export const NAV_LINKS = [
   { label: "Trayectoria", href: "#timeline" },
   { label: "Proyectos", href: "#projects" },
   { label: "Filosofía", href: "#philosophy" },
+  { label: "Lo que aporto", href: "#skills" },
   { label: "Blog", href: "#posts" },
   { label: "Contacto", href: "#contact" },
 ];
