@@ -73,7 +73,7 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8 ml-12">
+        <nav className="hidden md:flex items-center gap-5 ml-8">
           {NAV_LINKS.map((link, i) => {
             const sectionId = link.href.replace("/#", "");
             const isActive = activeSection === sectionId;
@@ -85,7 +85,7 @@ export function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.15 + i * 0.07, ease: "easeOut" }}
                 className={cn(
-                  "relative text-sm transition-colors duration-200 py-1 group",
+                  "relative text-xs transition-colors duration-200 py-1 group",
                   isActive ? "text-brand-900" : "text-brand-500 hover:text-brand-900"
                 )}
               >
