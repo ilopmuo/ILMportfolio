@@ -23,7 +23,7 @@ export async function ActivitySection() {
       <AnimatedSection>
         <div className="mb-12">
           <p className="text-xs text-brand-500 uppercase tracking-widest mb-3">
-            Actividad
+            Integraciones
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-brand-900 leading-tight">
             En activo.

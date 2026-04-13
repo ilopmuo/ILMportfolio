@@ -22,7 +22,7 @@ export const NAV_LINKS = [
   { label: "Trayectoria", href: "#timeline" },
   { label: "Proyectos", href: "#projects" },
   { label: "Filosofía", href: "#philosophy" },
-  { label: "Actividad", href: "#activity" },
+  { label: "Integraciones", href: "#activity" },
   { label: "Contacto", href: "#contact" },
 ];
 

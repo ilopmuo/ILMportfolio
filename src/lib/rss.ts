@@ -17,7 +17,7 @@ function extractTag(block: string, tag: string): string {
 
 export async function getSalesforceNews(): Promise<RSSItem[]> {
   try {
-    const res = await fetch("https://admin.salesforce.com/blog/feed", {
+    const res = await fetch("https://admin.salesforce.com/feed", {
       next: { revalidate: 3600 },
       headers: { "User-Agent": "Mozilla/5.0" },
     });
