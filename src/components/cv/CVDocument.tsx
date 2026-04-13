@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Link, Image } from "@react-pdf/renderer";
 
 const COLORS = {
   black: "#1a1a1a",
@@ -20,16 +20,18 @@ const styles = StyleSheet.create({
     lineHeight: 1.5,
   },
   // Header
-  header: { marginBottom: 18 },
+  header: { marginBottom: 18, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
+  headerLeft: { flex: 1 },
+  photo: { width: 72, height: 72, borderRadius: 4, marginLeft: 16, objectFit: "cover" },
   name: {
     fontSize: 22,
     fontFamily: "Helvetica-Bold",
     color: COLORS.black,
     letterSpacing: -0.5,
-    marginBottom: 4,
+    marginBottom: 6,
   },
-  title: { fontSize: 10, color: COLORS.mid, marginBottom: 6 },
-  contactRow: { flexDirection: "row", flexWrap: "wrap", gap: 12 },
+  title: { fontSize: 10, color: COLORS.mid, marginBottom: 10 },
+  contactRow: { flexDirection: "row", flexWrap: "wrap", gap: 10 },
   contactItem: { fontSize: 8, color: COLORS.light },
   contactLink: { fontSize: 8, color: COLORS.mid, textDecoration: "none" },
   // Divider
@@ -58,32 +60,33 @@ const styles = StyleSheet.create({
   certName: { fontSize: 8.5, color: COLORS.dark },
   certDate: { fontSize: 8, color: COLORS.light },
   // Skills
-  skillsGrid: { flexDirection: "row", flexWrap: "wrap", gap: 4 },
   skillLabel: { fontSize: 8, color: COLORS.mid, fontFamily: "Helvetica-Bold" },
   skillValue: { fontSize: 8, color: COLORS.mid },
   skillRow: { flexDirection: "row", gap: 4, marginBottom: 3 },
-  // Project
-  projectItem: { marginBottom: 6 },
-  projectName: { fontSize: 9, fontFamily: "Helvetica-Bold", color: COLORS.dark },
-  projectDesc: { fontSize: 8.5, color: COLORS.mid },
-  projectLink: { fontSize: 8, color: COLORS.light, textDecoration: "none" },
 });
 
-export function CVDocument() {
+interface CVDocumentProps {
+  phone?: string;
+  photoUrl?: string;
+}
+
+export function CVDocument({ phone, photoUrl }: CVDocumentProps) {
   return (
     <Document title="CV — Ignacio López Muñoyerro" author="Ignacio López Muñoyerro">
       <Page size="A4" style={styles.page}>
 
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.name}>Ignacio López Muñoyerro</Text>
-          <Text style={styles.title}>Customer Success Manager · Salesforce Developer · Project Manager</Text>
-          <View style={styles.contactRow}>
-            <Text style={styles.contactItem}>Sevilla, España</Text>
-            <Link src="mailto:Ignacio.odi4@gmail.com" style={styles.contactLink}>Ignacio.odi4@gmail.com</Link>
-            <Link src="https://www.linkedin.com/in/ignacio-l%C3%B3pez-mu%C3%B1oyerro-402ab5186/" style={styles.contactLink}>LinkedIn</Link>
-            <Link src="https://github.com/ilopmuo" style={styles.contactLink}>GitHub</Link>
+          <View style={styles.headerLeft}>
+            <Text style={styles.name}>Ignacio López Muñoyerro</Text>
+            <Text style={styles.title}>Customer Success Manager · Salesforce Developer · Project Manager</Text>
+            <View style={styles.contactRow}>
+              <Text style={styles.contactItem}>Sevilla, España</Text>
+              {phone && <Text style={styles.contactItem}>{phone}</Text>}
+              <Link src="mailto:Ignacio.odi4@gmail.com" style={styles.contactLink}>Ignacio.odi4@gmail.com</Link>
+            </View>
           </View>
+          {photoUrl && <Image src={photoUrl} style={styles.photo} />}
         </View>
 
         <View style={styles.divider} />
@@ -185,26 +188,6 @@ export function CVDocument() {
             <View key={c.name} style={styles.certRow}>
               <Text style={styles.certName}>{c.name}</Text>
               <Text style={styles.certDate}>{c.date}</Text>
-            </View>
-          ))}
-        </View>
-
-        <View style={styles.divider} />
-
-        {/* Proyectos */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Proyectos personales</Text>
-          {[
-            { name: "OppsHub", desc: "Herramienta de gestión de proyectos con Kanban, milestones y finanzas.", url: "https://opps-hub.vercel.app/", stack: "React · Supabase · TypeScript" },
-            { name: "Opotrack", desc: "Tracker de preparación de oposiciones con rondas de repaso y Pomodoro.", url: "https://opos-track.vercel.app/", stack: "React · Supabase" },
-            { name: "PermSet Builder", desc: "App de escritorio para convertir perfiles de Salesforce a Permission Sets.", url: "https://permsetbuilder.vercel.app/", stack: "Electron · React · Node.js" },
-          ].map((p) => (
-            <View key={p.name} style={styles.projectItem}>
-              <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                <Text style={styles.projectName}>{p.name} <Text style={{ fontFamily: "Helvetica", color: COLORS.light }}>— {p.stack}</Text></Text>
-                <Link src={p.url} style={styles.projectLink}>{p.url.replace("https://", "")}</Link>
-              </View>
-              <Text style={styles.projectDesc}>{p.desc}</Text>
             </View>
           ))}
         </View>

@@ -12,8 +12,10 @@ const PDFDownloadLink = dynamic(
 
 export function CVDownloadButton() {
   const [ready, setReady] = useState(false);
+  const [photoUrl, setPhotoUrl] = useState("");
 
   useEffect(() => {
+    setPhotoUrl(`${window.location.origin}/FotoNacho.png`);
     setReady(true);
   }, []);
 
@@ -31,7 +33,7 @@ export function CVDownloadButton() {
 
   return (
     <PDFDownloadLink
-      document={<CVDocument />}
+      document={<CVDocument phone="+34 665 918 520" photoUrl={photoUrl} />}
       fileName="ignacio-lopez-munoyerro-cv.pdf"
       className="inline-flex items-center gap-2 border border-brand-300 text-brand-700 text-sm px-5 py-3 rounded-sm hover:border-brand-700 hover:text-brand-900 transition-colors"
     >
