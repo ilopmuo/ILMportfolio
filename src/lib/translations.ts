@@ -221,6 +221,20 @@ export const translations = {
       success_title: "Mensaje recibido.",
       success_body: "Te respondo en 24–48 horas.",
     },
+    cv: {
+      title_line: "Customer Success Manager · Salesforce Developer · Project Manager",
+      location: "Sevilla, España",
+      section_experience: "Experiencia",
+      section_education: "Formación",
+      section_certs: "Certificaciones",
+      section_skills: "Competencias",
+      skills: [
+        { label: "Salesforce", value: "Sales Cloud, Service Cloud, Flows, Apex, LWC, Permission Sets, APIs REST/SOAP" },
+        { label: "Desarrollo", value: "React, Next.js, TypeScript, Supabase, Electron, Node.js, Git" },
+        { label: "Gestión", value: "Solution Design, User Stories, Acceptance Criteria, Roadmapping, Workshops" },
+        { label: "Idiomas", value: "Español (nativo) · Inglés B2 Cambridge" },
+      ],
+    },
   },
 
   en: {
@@ -440,6 +454,20 @@ export const translations = {
       submitting: "Sending...",
       success_title: "Message received.",
       success_body: "I'll reply within 24–48 hours.",
+    },
+    cv: {
+      title_line: "Customer Success Manager · Salesforce Developer · Project Manager",
+      location: "Seville, Spain",
+      section_experience: "Experience",
+      section_education: "Education",
+      section_certs: "Certifications",
+      section_skills: "Skills",
+      skills: [
+        { label: "Salesforce", value: "Sales Cloud, Service Cloud, Flows, Apex, LWC, Permission Sets, APIs REST/SOAP" },
+        { label: "Development", value: "React, Next.js, TypeScript, Supabase, Electron, Node.js, Git" },
+        { label: "Management", value: "Solution Design, User Stories, Acceptance Criteria, Roadmapping, Workshops" },
+        { label: "Languages", value: "Spanish (native) · English B2 Cambridge" },
+      ],
     },
   },
 };
