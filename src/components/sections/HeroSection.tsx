@@ -7,17 +7,17 @@ const ROLES = [
   {
     tag: "Customer Success",
     headline: "Entiendo al cliente.",
-    body: "Workshops, requisitos y relación. Sin burocracia.",
+    body: "Workshops, requisitos y relación.",
   },
   {
     tag: "Project Lead",
     headline: "Coordino y entrego.",
-    body: "Del diseño funcional al go-live, sin perder el hilo.",
+    body: "Del diseño funcional al go-live.",
   },
   {
-    tag: "Developer",
-    headline: "Y escribo el código.",
-    body: "Apex, LWC y APIs cuando hace falta.",
+    tag: "Desarrollo",
+    headline: "Y también desarrollo.",
+    body: "Apex, LWC y APIs.",
   },
 ];
 
