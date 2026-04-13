@@ -129,7 +129,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={`/projects/${project.slug}`}
               className="inline-flex items-center gap-1.5 text-xs text-brand-500 hover:text-brand-900 transition-colors"
             >
-              Caso de estudio
+              Documentación
               <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={1.5} />
             </Link>
           )}

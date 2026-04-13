@@ -20,7 +20,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const ids = NAV_LINKS.map((l) => l.href.replace("#", "")).filter(Boolean);
+    const ids = NAV_LINKS.map((l) => l.href.replace("/#", "")).filter(Boolean);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -72,7 +72,7 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link, i) => {
-            const sectionId = link.href.replace("#", "");
+            const sectionId = link.href.replace("/#", "");
             const isActive = activeSection === sectionId;
             return (
               <motion.a
