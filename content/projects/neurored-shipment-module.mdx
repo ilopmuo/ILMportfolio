@@ -1,0 +1,43 @@
+---
+title: "Módulo de Gestión de Envíos — Neurored"
+description: "Diseño funcional y técnico de un módulo complejo de logística y envíos sobre Salesforce, con integración con operadores de transporte internacionales."
+role: "Customer Success Manager / Solution Architect"
+organization: "Neurored"
+period: "Nov 2025 – Actualidad"
+status: "ongoing"
+tags: ["Salesforce", "Logística", "Solution Design", "APIs", "Flows"]
+outcomes:
+  - "Solution Designs completos para módulos de envío internacional"
+  - "Reducción del tiempo de onboarding de clientes gracias a documentación estandarizada"
+  - "Arquitectura de permisos que soporta múltiples perfiles operativos sin conflictos"
+techStack:
+  ["Salesforce", "Apex", "Flows", "REST APIs", "LWC", "Permission Sets"]
+featured: true
+order: 1
+caseStudyAvailable: true
+---
+
+## El contexto
+
+Neurored es una plataforma de gestión logística construida sobre Salesforce. Los clientes son empresas con operaciones internacionales complejas que necesitan orquestar envíos, operadores, documentación aduanera y trazabilidad en tiempo real desde un único sistema.
+
+Mi rol combina consultoría funcional con diseño técnico: entiendo el problema del cliente, lo traduzco en una arquitectura Salesforce viable, y coordino con el equipo de producto y desarrollo para que la implementación sea fiel al diseño.
+
+## Lo que diseño
+
+Cada proyecto empieza con un **Solution Design completo** que incluye:
+
+- **Data model**: objetos custom, campos y relaciones necesarias para el caso de uso
+- **Flujos operativos**: desde la creación de un envío hasta su cierre, incluyendo estados intermedios y casos de error
+- **Matriz de permisos**: qué perfiles ven y editan qué, con justificación funcional
+- **Integraciones**: endpoints, formato de payload, manejo de errores y estrategia de retry para APIs de operadores de transporte
+
+## El reto técnico más recurrente
+
+El mayor reto en proyectos de logística es la sincronización de estados entre Salesforce y los sistemas externos de los operadores. Los operadores envían eventos en formatos heterogéneos, en tiempos variables, y a veces en orden incorrecto.
+
+El diseño que más me ha funcionado es una capa de normalización en Apex que transforma los eventos entrantes antes de actualizar los registros de Salesforce, combinada con un mecanismo de idempotencia para evitar duplicados.
+
+## Coordinación con producto
+
+Una parte fundamental del trabajo es la coordinación con el Product Office para priorizar qué se implementa y cuándo. Las solicitudes de clientes compiten con bugs, mejoras de plataforma y deuda técnica. Mi rol es traducir el impacto de negocio de cada solicitud a un lenguaje que permita priorizar con criterio, no solo con urgencia.

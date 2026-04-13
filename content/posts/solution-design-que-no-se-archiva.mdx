@@ -1,0 +1,52 @@
+---
+title: "El Solution Design que no se archiva"
+description: "La mayoría de documentos de diseño funcional mueren en una carpeta de SharePoint. Esto es lo que hace que uno sea realmente útil."
+publishedAt: "2024-11-05"
+tags: ["Documentación", "Solution Design", "Consultoría", "Salesforce"]
+featured: false
+draft: false
+---
+
+En consultoría, el Solution Design es el artefacto más importante del proyecto y el más frecuentemente malinterpretado.
+
+He visto documentos de diseño de 80 páginas que nadie leyó después del kickoff. Y he visto un diagrama de 3 páginas que se convirtió en la referencia de todo el equipo durante meses. La diferencia no estaba en la extensión.
+
+## Para qué sirve realmente un Solution Design
+
+Un SD bien hecho tiene tres funciones concretas:
+
+1. **Alinea al cliente** antes de que empiece el desarrollo. Es el contrato funcional implícito.
+2. **Guía al equipo técnico** durante la implementación sin que necesiten interrumpirte.
+3. **Protege al consultor** cuando surgen los malentendidos, que siempre surgen.
+
+Si el documento no cumple las tres, es incompleto.
+
+## Lo que siempre incluyo
+
+Independientemente del tamaño del proyecto, estos cinco elementos son no negociables:
+
+**Data Model actualizado**: qué objetos existen, qué campos se añaden, qué relaciones cambian. No como lista de campos sino como diagrama con anotaciones.
+
+**User Stories con Acceptance Criteria medibles**: no "el usuario puede ver el estado del envío", sino "dado un usuario con perfil Logistics Operator, cuando accede al registro de Shipment, puede ver el campo Status con los valores [en tránsito, entregado, fallido] actualizado en tiempo real vía API".
+
+**Flujo operativo completo**: desde que el usuario inicia la acción hasta que el sistema responde. Incluyendo los casos de error.
+
+**Matriz de permisos**: quién ve qué. Esto siempre se descubre tarde si no se documenta pronto.
+
+**Decisiones tomadas y alternativas descartadas**: el log de por qué se eligió un camino y no otro. Es lo que más valoran los proyectos a los seis meses, cuando alguien pregunta "¿por qué está hecho así?"
+
+## El error más común
+
+Escribir el SD después del workshop como resumen de lo que se dijo, en lugar de escribirlo como propuesta antes del workshop para validar.
+
+El documento que llega al cliente diciendo "esto es lo que vamos a hacer, confirmad" tiene mucho más valor que el que dice "esto es lo que dijisteis que queríais". El primero genera conversación productiva. El segundo genera confusión.
+
+## Formato sobre extensión
+
+Un buen SD puede tener 10 páginas o 50. Lo que determina su utilidad no es la cantidad sino la estructura. Los tres elementos que más uso para hacerlos escaneables:
+
+- **Títulos de sección descriptivos** (no "Sección 3.2", sino "Flujo de creación de Shipment desde Order")
+- **Tablas en lugar de párrafos** para información estructurada
+- **Notas de decisión** destacadas visualmente para que no se pierdan en el cuerpo del texto
+
+El objetivo es que alguien que entra al proyecto en la semana 6 pueda orientarse leyendo solo el SD. Si consigues eso, está bien hecho.

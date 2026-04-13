@@ -1,0 +1,54 @@
+---
+title: "Flows vs Apex: Cuándo usar cada uno (y cuándo la respuesta es ambos)"
+description: "La pregunta que aparece en todos los proyectos Salesforce. No hay una respuesta universal, pero sí hay un marco de decisión claro."
+publishedAt: "2025-03-10"
+tags: ["Salesforce", "Apex", "Flows", "Arquitectura"]
+featured: true
+draft: false
+---
+
+Cuando alguien me pregunta "¿esto lo hacemos con Flow o con Apex?" la respuesta que menos me gusta es "depende". No porque sea incorrecta, sino porque casi nunca viene acompañada de los criterios reales de la decisión.
+
+Después de varios proyectos resolviendo automatizaciones complejas en Salesforce, aquí está el marco que uso.
+
+## El principio base
+
+Los Flows son declarativos. El declarativo es mantenible por perfiles funcionales, es visible en el sistema, y Salesforce lo optimiza de forma nativa. Apex es código. El código da control total, pero añade deuda de mantenimiento y dependencia del perfil técnico.
+
+**La regla general: usa Flow hasta que no puedas.**
+
+Ese "hasta que no puedas" es la parte interesante.
+
+## Cuándo Flows no son suficientes
+
+Hay tres situaciones en las que paso a Apex sin dudar:
+
+**1. Lógica de negocio compleja con múltiples condiciones interdependientes**
+
+Un Flow con 40 Decision Elements y variables cruzadas es técnicamente correcto pero operativamente inmanejable. Si la lógica requiere más de tres niveles de condiciones anidadas, Apex es más legible y más testeable.
+
+**2. Operaciones masivas (bulk)**
+
+Los Flows en contexto de trigger tienen límites de gobernador que se alcanzan rápido con volúmenes altos. Un trigger handler bien escrito en Apex, con bulkificación explícita, es infinitamente más predecible.
+
+**3. Integraciones síncronas con sistemas externos**
+
+Llamar a una API externa y procesar la respuesta en tiempo real dentro de un Flow es posible pero frágil. Apex te da control sobre la gestión de errores, reintentos y logging que en un Flow se vuelve muy verboso.
+
+## El modelo híbrido
+
+La solución que mejor me ha funcionado en proyectos reales es el modelo híbrido:
+
+- **Flow de entrada**: captura el evento, valida condiciones básicas, llama a una Invocable Action.
+- **Apex como motor**: la Invocable Action ejecuta la lógica compleja, hace la llamada externa o procesa los registros en bulk.
+- **Flow de salida**: recibe el resultado y actualiza registros o envía notificaciones.
+
+Esto mantiene la visibilidad del proceso en Salesforce (cualquiera puede ver el Flow en el org) mientras que la lógica crítica vive en código versionado y testeable.
+
+## Lo que nadie dice
+
+La decisión técnica es la parte fácil. La difícil es la conversación con el cliente sobre mantenibilidad a largo plazo. Un org lleno de Flows enormes y Apex sin tests unitarios es igualmente un problema.
+
+El mejor criterio final: ¿quién va a mantener esto en 18 meses, y con qué nivel técnico?
+
+Diseña para esa persona.

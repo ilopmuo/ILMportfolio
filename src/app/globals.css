@@ -1,26 +1,69 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand color palette */
+  --color-brand-900: #535359;
+  --color-brand-700: #75757a;
+  --color-brand-500: #98989b;
+  --color-brand-300: #bababd;
+  --color-brand-100: #ddddde;
+  --color-brand-50: #f4f4f5;
+
+  /* Fonts */
+  --font-display: var(--font-playfair), "Georgia", serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Semantic colors */
+  --color-background: #ffffff;
+  --color-foreground: #535359;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography prose override for MDX content */
+.prose {
+  --tw-prose-body: #75757a;
+  --tw-prose-headings: #535359;
+  --tw-prose-lead: #75757a;
+  --tw-prose-links: #535359;
+  --tw-prose-bold: #535359;
+  --tw-prose-counters: #98989b;
+  --tw-prose-bullets: #bababd;
+  --tw-prose-hr: #ddddde;
+  --tw-prose-quotes: #535359;
+  --tw-prose-quote-borders: #bababd;
+  --tw-prose-captions: #98989b;
+  --tw-prose-code: #535359;
+  --tw-prose-pre-code: #535359;
+  --tw-prose-pre-bg: #f4f4f5;
+  --tw-prose-th-borders: #bababd;
+  --tw-prose-td-borders: #ddddde;
+}
+
+/* Reading progress bar */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #98989b;
+  transform-origin: left;
+  z-index: 100;
+  transition: transform 0.1s linear;
 }
