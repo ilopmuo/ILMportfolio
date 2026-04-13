@@ -55,7 +55,7 @@ export function SkillsSection() {
           <div>
             <p className="text-xs text-brand-400 uppercase tracking-widest mb-2">Customer Success & Gestión</p>
             <p className="font-display text-white text-2xl leading-tight">
-              Del workshop al go-live, sin perder el hilo.
+              Gestión de cliente end to end.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -90,7 +90,7 @@ export function SkillsSection() {
           <div>
             <p className="text-xs text-brand-400 uppercase tracking-widest mb-2">Salesforce Platform</p>
             <p className="font-display text-white text-2xl leading-tight">
-              El núcleo técnico de cada proyecto.
+              Tech core.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">

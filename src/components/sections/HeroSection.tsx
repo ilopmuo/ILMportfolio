@@ -14,7 +14,7 @@ const ROLES = [
   {
     tag: "Project Lead",
     headline: "Coordino y entrego.",
-    body: "Del diseño funcional al go-live.",
+    body: "Gestión de cliente end to end.",
   },
   {
     tag: "Desarrollo",
