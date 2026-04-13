@@ -18,44 +18,88 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} — Salesforce Architect`,
-    template: `%s — ${SITE_CONFIG.name}`,
+    default: `${SITE_CONFIG.name} — Customer Success Manager & Salesforce Developer`,
+    template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: SITE_CONFIG.description,
+  description:
+    "Portfolio de Ignacio López Muñoyerro — Customer Success Manager y Salesforce Developer en Neurored. Especializado en implementación Salesforce, automatización y gestión de proyectos para clientes internacionales.",
   keywords: [
     "Ignacio López Muñoyerro",
     "Nacho Muñoyerro",
-    "Ignacio López",
-    "Salesforce Architect",
-    "Customer Success Manager",
-    "Salesforce Developer",
-    "Sevilla",
+    "Ignacio López Muñoyerro portfolio",
+    "Ignacio López Salesforce",
+    "Customer Success Manager Salesforce",
+    "Salesforce Developer Sevilla",
     "Neurored",
     "Salesforce España",
+    "Ignacio López",
     "LWC",
     "Apex",
     "Salesforce Consultant",
   ],
-  authors: [{ name: SITE_CONFIG.name }],
+  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   creator: SITE_CONFIG.name,
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
   openGraph: {
     type: "website",
     locale: "es_ES",
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} — Salesforce Architect`,
-    description: SITE_CONFIG.description,
+    title: `${SITE_CONFIG.name} — Customer Success Manager & Salesforce Developer`,
+    description:
+      "Portfolio de Ignacio López Muñoyerro — Customer Success Manager y Salesforce Developer en Neurored.",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_CONFIG.name} — Salesforce Architect`,
-    description: SITE_CONFIG.description,
+    title: `${SITE_CONFIG.name} — Customer Success Manager & Salesforce Developer`,
+    description:
+      "Portfolio de Ignacio López Muñoyerro — Customer Success Manager y Salesforce Developer en Neurored.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ignacio López Muñoyerro",
+  alternateName: ["Nacho Muñoyerro", "Ignacio López"],
+  url: SITE_CONFIG.url,
+  jobTitle: "Customer Success Manager",
+  worksFor: {
+    "@type": "Organization",
+    name: "Neurored",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Sevilla",
+    addressCountry: "ES",
+  },
+  email: SITE_CONFIG.email,
+  sameAs: [
+    SITE_CONFIG.social.linkedin,
+    SITE_CONFIG.social.github,
+  ],
+  knowsAbout: [
+    "Salesforce",
+    "Customer Success",
+    "Salesforce Developer",
+    "Lightning Web Components",
+    "Apex",
+    "Salesforce Flows",
+    "CRM",
+    "Project Management",
+  ],
 };
 
 export default function RootLayout({
@@ -68,6 +112,12 @@ export default function RootLayout({
       lang="es"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-brand-900">
         <Header />
         <main className="flex-1">{children}</main>
