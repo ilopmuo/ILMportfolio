@@ -121,8 +121,8 @@ export const CERTIFICATIONS = [
 
 export const STATS = [
   { value: "3+", label: "años en Salesforce" },
-  { value: "10+", label: "proyectos entregados" },
   { value: "3", label: "certificaciones Salesforce" },
+  { value: "B2", label: "inglés acreditado" },
 ];
 
 export const TIMELINE = [

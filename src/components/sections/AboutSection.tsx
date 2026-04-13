@@ -62,8 +62,8 @@ export function AboutSection() {
                 liderando módulos complejos de logística sobre Salesforce para clientes internacionales.
               </p>
               <p>
-                Tres certificaciones activas, inglés B2 y una carrera en Ingeniería Informática
-                que todavía no he terminado porque el trabajo llegó antes.
+                Tres certificaciones activas de Salesforce e <strong className="text-brand-900 font-semibold">inglés B2</strong> —
+                trabajo en inglés a diario con clientes y equipos internacionales.
               </p>
             </div>
 
