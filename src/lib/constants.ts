@@ -166,22 +166,22 @@ export const TIMELINE = [
 export const PHILOSOPHY_PRINCIPLES = [
   {
     numeral: "I",
-    title: "Primero el problema.",
-    body: "El stack lo decido al final. Primero entiendo qué tiene que mejorar y para quién.",
+    title: "Antes de hacer, entender.",
+    body: "Necesito saber qué problema resuelvo antes de escribir la primera línea.",
   },
   {
     numeral: "II",
-    title: "Diseño para dentro de un año.",
-    body: "Un parche rápido hoy es deuda técnica mañana. Prefiero hacerlo bien a la primera.",
+    title: "Sin documentación no hay buen código.",
+    body: "El Solution Design va antes del sprint, no después.",
   },
   {
     numeral: "III",
-    title: "Documentar no es burocracia.",
-    body: "Un buen Solution Design evita el 80% de los malentendidos. Lo escribo antes del sprint, no después.",
+    title: "La solución tiene que funcionar en producción.",
+    body: "Una demo perfecta que falla en real no vale nada.",
   },
   {
     numeral: "IV",
-    title: "El cliente explica, yo propongo.",
-    body: "En un workshop no tomo nota, construyo una solución. Salgo con una propuesta, no con más preguntas.",
+    title: "Del workshop salgo con una propuesta.",
+    body: "El cliente explica su problema, yo vuelvo con una solución.",
   },
 ];
