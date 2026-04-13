@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica-Bold",
     color: COLORS.black,
     letterSpacing: -0.5,
-    marginBottom: 10,
+    marginBottom: 18,
   },
   title: { fontSize: 9.5, color: COLORS.mid, marginBottom: 8 },
   contactRow: { flexDirection: "row", flexWrap: "wrap", gap: 10 },
