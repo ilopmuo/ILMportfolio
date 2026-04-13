@@ -62,6 +62,11 @@ export function AboutSection() {
                 gestiono proyectos de implementación y mantenimiento de Salesforce para freightforwarders.
               </p>
               <p>
+                Al día con las herramientas de <strong className="text-brand-900 font-semibold">IA generativa</strong> aplicadas al desarrollo —
+                Claude, Cursor, v0 — y con capacidad de orquestar tecnologías para construir
+                y desplegar soluciones reales de principio a fin.
+              </p>
+              <p>
                 Tres certificaciones activas de Salesforce e <strong className="text-brand-900 font-semibold">inglés B2 Cambridge</strong>.
                 Trabajo en inglés a diario con clientes y equipos internacionales.
               </p>
