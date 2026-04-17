@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Play, Pause } from "lucide-react";
+import { ArrowUpRight, Play, Pause, Download } from "lucide-react";
 import { TagBadge } from "@/components/shared/TagBadge";
 import type { Project } from "@/types/project";
 import { cn } from "@/lib/utils";
@@ -137,6 +137,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {lang === "en" ? "Documentation" : "Documentación"}
               <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={1.5} />
             </Link>
+          )}
+          {project.downloadUrl && (
+            <a
+              href={project.downloadUrl}
+              className="inline-flex items-center gap-1.5 text-xs text-brand-500 hover:text-brand-900 transition-colors"
+            >
+              {lang === "en" ? "Download" : "Descargar"}
+              <Download className="w-3.5 h-3.5" strokeWidth={1.5} />
+            </a>
           )}
         </div>
       </div>

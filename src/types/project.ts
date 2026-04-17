@@ -19,6 +19,7 @@ export interface ProjectFrontmatter {
   coverImage?: string;
   previewVideo?: string;
   liveUrl?: string;
+  downloadUrl?: string;
   caseStudyAvailable: boolean;
 }
 
