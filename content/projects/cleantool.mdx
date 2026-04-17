@@ -1,0 +1,55 @@
+---
+title: "CleanTool"
+description: "Analizador y limpiador de disco para Windows. Explora el uso de espacio por carpetas, limpia cachés de sistema y aplicaciones, encuentra duplicados y archivos grandes."
+description_en: "Disk analyzer and cleaner for Windows. Explore storage usage by folder, clean system and app caches, find duplicates and large files."
+role: "Creador & Desarrollador"
+role_en: "Creator & Developer"
+organization: "Proyecto personal"
+organization_en: "Personal project"
+period: "2026"
+status: "completed"
+tags: ["Electron", "Node.js", "Windows", "Desktop"]
+outcomes:
+  - "Analizador de carpetas con navegación jerárquica que ordena el contenido por tamaño"
+  - "Limpieza de más de 20 ubicaciones temporales: sistema, navegadores (Chrome, Edge, Firefox) y apps (Teams, Discord, Spotify…)"
+  - "Buscador de duplicados en dos pasadas de hash MD5 (parcial + completo) con cancelación en tiempo real"
+  - "Historial persistente de espacio liberado por sesión"
+outcomes_en:
+  - "Folder analyzer with hierarchical navigation sorted by size"
+  - "Cleans over 20 temporary locations: system, browsers (Chrome, Edge, Firefox) and apps (Teams, Discord, Spotify…)"
+  - "Duplicate finder using two-pass MD5 hashing (partial + full) with real-time cancellation"
+  - "Persistent history of storage freed per session"
+techStack: ["Electron", "Node.js", "HTML/CSS", "electron-updater"]
+featured: true
+order: 4
+caseStudyAvailable: true
+githubUrl: "https://github.com/ilopmuo/CleanTool"
+previewVideo: "/Cleantoolvid.mp4"
+---
+
+## El problema
+
+Windows acumula basura silenciosamente: cachés de navegadores, carpetas temp que nadie vacía, duplicados que se multiplican entre descargas y copias de seguridad. Las herramientas existentes o son demasiado agresivas o están llenas de bloatware. CleanTool hace exactamente lo que necesitas y nada más.
+
+## Qué hace
+
+**Analizador de disco** — navega cualquier carpeta y ve el contenido ordenado por tamaño. Puedes entrar en subcarpetas, filtrar por tipo de archivo y enviar ítems a la papelera o borrarlos permanentemente desde la misma vista.
+
+**Limpiador de temporales** — detecta automáticamente las ubicaciones de caché que existen en tu equipo y muestra cuánto ocupan antes de limpiar. Más de 20 ubicaciones organizadas por categoría:
+
+- Sistema: `%TEMP%`, `C:\Windows\Temp`, Windows Update, Prefetch
+- Navegadores: Chrome, Edge (caché y GPU cache), Firefox
+- Aplicaciones: Teams, Discord, Spotify, Slack, Zoom, WhatsApp
+- Desarrollo: VS Code, npm, Yarn, pip
+
+**Buscador de duplicados** — recorre recursivamente una carpeta y agrupa los archivos idénticos. Usa un algoritmo en dos pasadas: primero hash parcial de 64 KB para descartar candidatos rápido, luego hash MD5 completo solo en los que coinciden. El proceso es cancelable en cualquier momento y muestra el espacio desperdiciado por grupo.
+
+**Archivos grandes** — lista los archivos más pesados de una carpeta para encontrar rápidamente qué está comiendo el disco.
+
+**Papelera de reciclaje** — muestra el tamaño actual y permite vaciarla desde la app.
+
+## Stack
+
+Electron como shell de escritorio. Toda la lógica de disco corre en el proceso principal con las APIs nativas de Node.js (`fs`, `crypto`, `child_process`). La UI es HTML y CSS puro sin frameworks — la app pesa poco y arranca rápido. El puente entre renderer y main usa `contextBridge` para mantener el aislamiento de contexto.
+
+Las actualizaciones automáticas van vía `electron-updater` apuntando a GitHub Releases.
