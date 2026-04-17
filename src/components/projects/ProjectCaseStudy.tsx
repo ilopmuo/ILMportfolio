@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Download } from "lucide-react";
 import { TagBadge } from "@/components/shared/TagBadge";
 import type { Project } from "@/types/project";
 
@@ -40,6 +40,18 @@ export function ProjectCaseStudy({ project, children }: ProjectCaseStudyProps) {
         <p className="text-brand-700 text-lg leading-relaxed mb-6">
           {project.description}
         </p>
+
+        {/* Video preview */}
+        {project.previewVideo && (
+          <div className="relative w-full aspect-video rounded-sm overflow-hidden bg-brand-100 mb-6">
+            <video
+              src={project.previewVideo}
+              controls
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
 
         {/* Meta grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 py-6 border-y border-brand-100">
@@ -88,17 +100,28 @@ export function ProjectCaseStudy({ project, children }: ProjectCaseStudyProps) {
           </div>
         )}
 
-        {project.liveUrl && (
-          <div className="mt-6">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-brand-700 hover:text-brand-900 transition-colors"
-            >
-              Ver proyecto en vivo
-              <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
-            </a>
+        {(project.liveUrl || project.downloadUrl) && (
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-brand-700 hover:text-brand-900 transition-colors"
+              >
+                Ver proyecto en vivo
+                <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
+              </a>
+            )}
+            {project.downloadUrl && (
+              <a
+                href={project.downloadUrl}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-900 text-white text-sm font-medium rounded-sm hover:bg-brand-700 transition-colors"
+              >
+                <Download className="w-4 h-4" strokeWidth={1.5} />
+                Descargar para Windows
+              </a>
+            )}
           </div>
         )}
       </div>
